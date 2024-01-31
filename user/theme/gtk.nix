@@ -9,13 +9,15 @@
       package = pkgs.nerdfonts;
      };
     theme = {
-      name = "Catppuccin-Mocha-Compact-Lavender-Dark";
-      package = pkgs.catppuccin-gtk.override {
-        accents = [ "lavender" ];
-        size = "compact";
-        # tweaks = [ "rimless" ];
-        variant = "mocha";
-       };
+      #name = "Catppuccin-Mocha-Compact-Lavender-Dark";
+      #package = pkgs.catppuccin-gtk.override {
+      #  accents = [ "lavender" ];
+      #  size = "compact";
+      #  # tweaks = [ "rimless" ];
+      #  variant = "mocha";
+      # };
+      name = "Manhattan";
+      package = pkgs.callPackage ../../packages/manhattan-gtk-theme.nix { };
      };
     iconTheme = {
       # name = "Gruvbox Plus Dark";
