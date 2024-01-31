@@ -5,6 +5,7 @@
     enable = true;
     font = {
       name = "JetbrainsMono";
+      # name = "Iosevka";
       # size = 12;
       package = pkgs.nerdfonts;
      };
@@ -16,7 +17,7 @@
       #  # tweaks = [ "rimless" ];
       #  variant = "mocha";
       # };
-      name = "Manhattan";
+      name = "Manhattan-Soft";
       package = pkgs.callPackage ../../packages/manhattan-gtk-theme.nix { };
      };
     iconTheme = {
