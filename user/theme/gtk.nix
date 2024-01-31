@@ -1,7 +1,5 @@
 { config, pkgs, lib, ... }:
-let
-  gruvboxPlus = import ./gruvbox-plus.nix { inherit pkgs; };
-in
+
 {
   gtk = {
     enable = true;
