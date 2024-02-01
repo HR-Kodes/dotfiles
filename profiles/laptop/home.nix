@@ -10,6 +10,7 @@
     ../../user/wm/wofi/wofi.nix
     ../../user/theme/gtk.nix
     ../../user/theme/qt.nix
+    # ../../user/shell/starship.nix
    ];
 
   home.packages = with pkgs; [
@@ -27,6 +28,9 @@
       recursive = true;
      };
     ".config/foot/foot.ini".source = ../../user/apps/foot/foot.ini;
+    # ".config/starship.toml".source = ../../user/shell/starship/starship.toml;
+    # ".config/starship_cat.toml".source = ../../user/shell/starship/starship_cat.toml;
+    
     "Pictures/Wallpapers" = {
       source = ../../user/theme/wallpaper;
       recursive = true;
@@ -53,5 +57,10 @@
 
   programs.waybar = {
     enable = true;
+   };
+
+  programs.direnv = {
+    enable = true;
+    nix-direnv.enable = true;
    };
 }

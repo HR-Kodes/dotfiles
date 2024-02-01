@@ -1,0 +1,268 @@
+{ config, pkgs, lib, ... }:
+
+{
+
+  programs.starship.enable = true;
+  programs.starship.settings = {
+    add_newline = false;
+    format = "$shlvl$shell$username$hostname$nix_shell$git_branch$git_commit$git_state$git_status$directory$jobs$cmd_duration$character";
+    shlvl = {
+      disabled = false;
+      symbol = "ﰬ";
+      style = "bright-red bold";
+     };
+    shell = {
+      disabled = false;
+      format = "$indicator";
+      fish_indicator = "";
+      bash_indicator = "[BASH](bright-white) ";
+      zsh_indicator = "[ZSH](bright-white) ";
+     };
+    username = {
+      style_user = "bright-white bold";
+      style_root = "bright-red bold";
+     };
+   };
+
+
+  # programs.starship = {
+  #   enable = true;
+    # Configuration written to ~/.config/starship.toml
+    #settings = {
+    #  add_newline = false;
+    #  
+    #  character = {
+    #    success_symbol = "[➜](bold green)";
+    #    error_symbol = "[➜](bold red)";
+    #    vimcmd_symbol = "[<](bold green)"
+    #   };
+
+    #  # package.disabled = true;
+    #};
+
+    #settings = {
+    #  add_newline = false;
+    #  format = "$shlvl$shell$username$hostname$nix_shell$git_branch$git_commit$git_state$git_status$directory$jobs$cmd_duration$character";
+    #  shlvl = {
+    #    disabled = false;
+    #    symbol = "ﰬ";
+    #    style = "bright-red bold";
+    #   };
+    # };
+
+   # settings = {
+   #   add_newline = false;
+   #   format = "$shlvl$shell$username$hostname$nix_shell$git_branch$git_commit$git_state$git_status$directory$jobs$cmd_duration$character";
+   #   shlvl = {
+   #     disabled = false;
+   #     symbol = "ﰬ";
+   #     style = "bright-red bold";
+   #    };
+   #   shell = {
+   #     disabled = false;
+   #     format = "$indicator";
+   #     fish_indicator = "";
+   #     bash_indicator = "[BASH](bright-white) ";
+   #     zsh_indicator = "[ZSH](bright-white) ";
+   #   };
+   #   username = {
+   #     style_user = "bright-white bold";
+   #     style_root = "bright-red bold";
+   #   };
+
+   #   character = {
+   #     success_symbol = "[>](bold green)";
+   #     error_symbol = "[x](bold red)";
+   #     vimcmd_symbol = "[<](bold green)";
+   #    };
+
+   #   git_commit = {
+   #     tag_symbol = " tag ";
+   #    };
+
+   #   git_status = {
+   #     ahead = ">";
+   #     behind = "<";
+   #     diverged = "<>";
+   #     renamed = "r";
+   #     deleted = "x";
+   #    };
+   #   
+   #   aws= {
+   #     symbol = "aws ";
+   #    };
+   #   
+   #   bun = {
+   #     symbol = "bun ";
+   #    };
+   #   
+   #   c = {
+   #    symbol = "C ";
+   #    };
+   #   
+   #  # [cobol]
+   #  # symbol = "cobol "
+   #  # 
+   #  # [conda]
+   #  # symbol = "conda "
+   #  # 
+   #  # [crystal]
+   #  # symbol = "cr "
+   #  # 
+   #  # [cmake]
+   #  # symbol = "cmake "
+   #  # 
+   #  # [daml]
+   #  # symbol = "daml "
+   #  # 
+   #  # [dart]
+   #  # symbol = "dart "
+   #  # 
+   #  # [deno]
+   #  # symbol = "deno "
+   #  # 
+   #  # [dotnet]
+   #  # symbol = ".NET "
+   #  # 
+   #  # [directory]
+   #  # read_only = " ro"
+   #  # 
+   #  # [docker_context]
+   #  # symbol = "docker "
+   #  # 
+   #  # [elixir]
+   #  # symbol = "exs "
+   #  # 
+   #  # [elm]
+   #  # symbol = "elm "
+   #  # 
+   #  # [git_branch]
+   #  # symbol = "git "
+   #  # 
+   #  # [golang]
+   #  # symbol = "go "
+   #  # 
+   #  # [guix_shell]
+   #  # symbol = "guix "
+   #  # 
+   #  # [hg_branch]
+   #  # symbol = "hg "
+   #  # 
+   #  # [java]
+   #  # symbol = "java "
+   #  # 
+   #  # [julia]
+   #  # symbol = "jl "
+   #  # 
+   #  # [kotlin]
+   #  # symbol = "kt "
+   #  # 
+   #  # [lua]
+   #  # symbol = "lua "
+   #  # 
+   #  # [nodejs]
+   #  # symbol = "nodejs "
+   #  # 
+   #  # [memory_usage]
+   #  # symbol = "memory "
+   #  # 
+   #  # [meson]
+   #  # symbol = "meson "
+   #  # 
+   #  # [nim]
+   #  # symbol = "nim "
+   #  # 
+   #  # [nix_shell]
+   #  # symbol = "nix "
+   #  # 
+   #  # [ocaml]
+   #  # symbol = "ml "
+   #  # 
+   #  # [opa]
+   #  # symbol = "opa "
+   #  # 
+   #  # [os.symbols]
+   #  # Alpine = "alp "
+   #  # Amazon = "amz "
+   #  # Android = "andr "
+   #  # Arch = "rch "
+   #  # CentOS = "cent "
+   #  # Debian = "deb "
+   #  # DragonFly = "dfbsd "
+   #  # Emscripten = "emsc "
+   #  # EndeavourOS = "ndev "
+   #  # Fedora = "fed "
+   #  # FreeBSD = "fbsd "
+   #  # Garuda = "garu "
+   #  # Gentoo = "gent "
+   #  # HardenedBSD = "hbsd "
+   #  # Illumos = "lum "
+   #  # Linux = "lnx "
+   #  # Macos = "mac "
+   #  # Manjaro = "mjo "
+   #  # Mariner = "mrn "
+   #  # MidnightBSD = "mid "
+   #  # Mint = "mint "
+   #  # NetBSD = "nbsd "
+   #  # NixOS = "nix "
+   #  # OpenBSD = "obsd "
+   #  # openSUSE = "osuse "
+   #  # OracleLinux = "orac "
+   #  # Pop = "pop "
+   #  # Raspbian = "rasp "
+   #  # Redhat = "rhl "
+   #  # RedHatEnterprise = "rhel "
+   #  # Redox = "redox "
+   #  # Solus = "sol "
+   #  # SUSE = "suse "
+   #  # Ubuntu = "ubnt "
+   #  # Unknown = "unk "
+   #  # Windows = "win "
+   #  # 
+   #  # [package]
+   #  # symbol = "pkg "
+   #  # 
+   #  # [perl]
+   #  # symbol = "pl "
+   #  # 
+   #  # [php]
+   #  # symbol = "php "
+   #  # 
+   #  # [pulumi]
+   #  # symbol = "pulumi "
+   #  # 
+   #  # [purescript]
+   #  # symbol = "purs "
+   #  # 
+   #  # [python]
+   #  # symbol = "py "
+   #  # 
+   #  # [raku]
+   #  # symbol = "raku "
+   #  # 
+   #  # [ruby]
+   #  # symbol = "rb "
+   #  # 
+   #  # [rust]
+   #  # symbol = "rs "
+   #  # 
+   #  # [scala]
+   #  # symbol = "scala "
+   #  # 
+   #  # [spack]
+   #  # symbol = "spack "
+   #  # 
+   #  # [sudo]
+   #  # symbol = "sudo "
+   #  # 
+   #  # [swift]
+   #  # symbol = "swift "
+   #  # 
+   #  # [terraform]
+   #  # symbol = "terraform "
+   #  # 
+   #  # [zig]
+   #  # symbol = "zig "
+   #  };
+  # };
+}

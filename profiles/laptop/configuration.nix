@@ -78,6 +78,26 @@
     CLUTTER_BACKEND = "wayland";
    };
 
+  # FISH -> Setting default shell to fish.
+  environment.shells = with pkgs; [ bash fish zsh ];
+  users.defaultUserShell = pkgs.fish;
+  programs.fish = {
+    enable = true;
+    # initExtra = ''
+    #   ${pkgs.neofetch}/bin/neofetch
+    #  '';
+   };
+  programs.zsh.interactiveShellInit = ''eval "$(direnv hook zsh"'';
+  programs.fish.interactiveShellInit = ''
+    set fish_greeting # Disable greeting
+    ${pkgs.neofetch}/bin/neofetch
+    eval "$(direnv hook fish)"
+   '';
+
+  programs.starship.enable = true;
+  # programs.starship.settings = pkgs.lib.importTOML ../../user/shell/starship/starship.toml;
+  # programs.starship.settings = pkgs.lib.importTOML ../../user/shell/starship/starship-2.toml;
+  programs.starship.settings = pkgs.lib.importTOML ../../user/shell/starship/starship-3.toml;
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.koushikhr = {
@@ -95,7 +115,7 @@
   environment.systemPackages = with pkgs; [
     # sddm hyprland xwayland waybar wget
   #  vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
-  #  wget
+    wget neofetch
   ];
 
   programs.thunar.enable = true;
