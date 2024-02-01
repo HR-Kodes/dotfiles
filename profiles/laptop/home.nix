@@ -14,12 +14,23 @@
 
   home.packages = with pkgs; [
     # Add home packages to install for user.
-    foot vivaldi unzip 
+    foot htop vivaldi unzip swww
+    wl-clipboard clipman
+
+    (import ../../user/bin/wallsetter.nix { inherit pkgs; })
    ];
 
   home.file = {
     ".config/hypr/hyprland.conf".source = ../../user/wm/hyprland.conf;
-    ".config/waybar/config".source = ../../user/wm/waybar.config;
+    ".config/waybar" = {
+      source = ../../user/wm/waybar;
+      recursive = true;
+     };
+    ".config/foot/foot.ini".source = ../../user/apps/foot/foot.ini;
+    "Pictures/Wallpapers" = {
+      source = ../../user/theme/wallpaper;
+      recursive = true;
+     };
    };
 
   xdg.userDirs = {

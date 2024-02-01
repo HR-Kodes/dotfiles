@@ -4,9 +4,11 @@
   gtk = {
     enable = true;
     font = {
-      name = "JetbrainsMono";
-      # name = "Iosevka";
-      # size = 12;
+      # name = "JetbrainsMono";
+      # name = "Devicons";
+      # name = "FontAwesome";
+      name = "Iosevka";
+      size = 10.5;
       package = pkgs.nerdfonts;
      };
     theme = {
@@ -17,6 +19,7 @@
       #  # tweaks = [ "rimless" ];
       #  variant = "mocha";
       # };
+
       name = "Manhattan-Soft";
       package = pkgs.callPackage ../../packages/manhattan-gtk-theme.nix { };
      };
@@ -48,4 +51,6 @@
      };
 
    };
+
+  fonts.fontconfig.enable = true;
 }

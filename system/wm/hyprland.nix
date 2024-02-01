@@ -3,6 +3,7 @@
 {
   imports = [
     ./dbus.nix
+    ./sound.nix
    ];
 
   environment.systemPackages = with pkgs; [

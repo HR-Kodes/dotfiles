@@ -9,6 +9,7 @@
     [ # Include the results of the hardware scan.
       ./hardware-configuration.nix
      (./. + "../../../system/wm" + ("/" + wm) + ".nix") # Selected Window Manager.
+     ../../system/theme/fonts.nix
     ];
 
   # Flakes.
@@ -100,6 +101,8 @@
   programs.thunar.enable = true;
   services.gvfs.enable = true; # Mount, trash, and other functionalities
   services.tumbler.enable = true; # Thumbnail support for images
+
+  # programs.nm-applet.enable = true;
 
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
