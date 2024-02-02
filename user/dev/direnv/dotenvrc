@@ -1,0 +1,2 @@
+# sudo chmod 777 -R .git/objects (or) .dotfiles/
+use flake ~/.dotfiles/user/dev/direnv;

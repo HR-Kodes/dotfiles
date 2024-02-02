@@ -7,13 +7,10 @@
   home.stateVersion = "23.11";
 
   imports = [
-    ../../user/wm/wofi/wofi.nix
-    ../../user/theme/gtk.nix
-    ../../user/theme/qt.nix
-    ../../user/wm/wlogout/wlogout.nix
-    ../../user/wm/wlogout/swaylock.nix
-    ../../user/pkgs/mako/mako.nix
-    # ../../user/shell/starship.nix
+    ../../user/wm
+    ../../user/theme
+    ../../user/apps
+    ../../user/pkgs
    ];
 
   home.packages = with pkgs; [
@@ -23,12 +20,13 @@
     grim slurp swappy viewnior
     mpv wl-clipboard wf-recorder
     brightnessctl
+    youtube-music
 
     (import ../../user/bin/wallsetter.nix { inherit pkgs; })
    ];
 
   home.file = {
-    ".config/hypr/hyprland.conf".source = ../../user/wm/hyprland.conf;
+    ".config/hypr/hyprland.conf".source = ../../user/wm/hyprland/hyprland.conf;
     ".config/waybar" = {
       source = ../../user/wm/waybar;
       recursive = true;
@@ -42,18 +40,12 @@
        source = ../../user/wm/wlogout/icons;
        recursive = true;
       };
+      "Documents/programming/.envrc".source = ../../user/dev/direnv/dotenvrc;
    };
 
   xdg.userDirs = {
     enable = true;
     createDirectories = true;
-   };
-
-  programs.neovim = {
-    enable = true;
-    viAlias = true;
-    vimAlias = true;
-    vimdiffAlias = true;
    };
 
   programs.git = {
