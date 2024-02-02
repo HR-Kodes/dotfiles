@@ -10,13 +10,19 @@
     ../../user/wm/wofi/wofi.nix
     ../../user/theme/gtk.nix
     ../../user/theme/qt.nix
+    ../../user/wm/wlogout/wlogout.nix
+    ../../user/wm/wlogout/swaylock.nix
+    ../../user/pkgs/mako/mako.nix
     # ../../user/shell/starship.nix
    ];
 
   home.packages = with pkgs; [
     # Add home packages to install for user.
     foot htop vivaldi unzip swww
-    wl-clipboard clipman
+    clipman libnotify
+    grim slurp swappy viewnior
+    mpv wl-clipboard wf-recorder
+    brightnessctl
 
     (import ../../user/bin/wallsetter.nix { inherit pkgs; })
    ];
@@ -28,13 +34,14 @@
       recursive = true;
      };
     ".config/foot/foot.ini".source = ../../user/apps/foot/foot.ini;
-    # ".config/starship.toml".source = ../../user/shell/starship/starship.toml;
-    # ".config/starship_cat.toml".source = ../../user/shell/starship/starship_cat.toml;
-    
     "Pictures/Wallpapers" = {
       source = ../../user/theme/wallpaper;
       recursive = true;
      };
+     ".wlogout-icons" = {
+       source = ../../user/wm/wlogout/icons;
+       recursive = true;
+      };
    };
 
   xdg.userDirs = {
@@ -63,4 +70,5 @@
     enable = true;
     nix-direnv.enable = true;
    };
+
 }
