@@ -111,9 +111,11 @@
         "format-source": "{volume}% ",
         "format-source-muted": "",
         "format-icons": {
-            "headphone": "",
-            "hands-free": "",
-            "headset": "",
+            "headphone": " ",
+            "hands-free": " ",
+            "// hands-free": "",
+            "headset": " ",
+            // "headset": "",
             "phone": "",
             "portable": "",
             "car": "",
@@ -141,7 +143,7 @@
             "critical": 15
         },
         "format": "{icon}   {capacity}%",
-        "format-charging": "  {capacity}%",
+        "format-charging": "  {capacity}%",
         "format-plugged": "  {capacity}%",
         "format-alt": "{icon}  {time}",
         // "format-good": "", // An empty format will hide the module
