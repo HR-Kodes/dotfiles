@@ -15,12 +15,13 @@
 
   home.packages = with pkgs; [
     # Add home packages to install for user.
-    foot htop vivaldi unzip swww
-    clipman libnotify
+    foot vivaldi insomnia
+    clipman libnotify htop unzip xarchiver swww
     grim slurp swappy viewnior
     mpv wl-clipboard wf-recorder
     brightnessctl
-    youtube-music
+    youtube-music qbittorrent
+    gimp
 
     (import ../../user/bin/wallsetter.nix { inherit pkgs; })
    ];
@@ -28,19 +29,20 @@
   home.file = {
     ".config/hypr/hyprland.conf".source = ../../user/wm/hyprland/hyprland.conf;
     ".config/waybar" = {
-      source = ../../user/wm/waybar;
+      # source = ../../user/wm/waybar/blur;
+      source = ../../user/wm/waybar/blur;
       recursive = true;
-     };
+    };
     ".config/foot/foot.ini".source = ../../user/apps/foot/foot.ini;
     "Pictures/Wallpapers" = {
       source = ../../user/theme/wallpaper;
       recursive = true;
-     };
-     ".wlogout-icons" = {
+    };
+    ".wlogout-icons" = {
        source = ../../user/wm/wlogout/icons;
        recursive = true;
-      };
-      "Documents/programming/.envrc".source = ../../user/dev/direnv/dotenvrc;
+    };
+    "Documents/programming/.envrc".source = ../../user/dev/direnv/dotenvrc;
    };
 
   xdg.userDirs = {

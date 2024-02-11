@@ -9,8 +9,7 @@
         (final: prev: rec {
           nodejs = prev.nodejs_latest;
           corepack = prev.corepack;
-          # pnpm = prev.nodePackages.pnpm;
-          # yarn = (prev.yarn.override { inherit nodejs; });
+          bun = prev.bun;
         })
       ];
       supportedSystems = [ "x86_64-linux" "aarch64-linux" "x86_64-darwin" "aarch64-darwin" ];
@@ -22,11 +21,10 @@
       devShells = forEachSupportedSystem ({ pkgs }: {
         default = pkgs.mkShell {
           packages = with pkgs; [ 
-          # node2nix 
-          nodejs
-          corepack
-          # pnpm 
-          # yarn
+            # node2nix 
+            nodejs
+            corepack
+            bun
           ];
         };
 

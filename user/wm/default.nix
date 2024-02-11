@@ -2,7 +2,8 @@
 
 {
     imports = [
-    ./wofi/wofi.nix
+    # ./wofi/wofi.nix
+    ./rofi
     ./wlogout/wlogout.nix
     ./wlogout/swaylock.nix
     ];

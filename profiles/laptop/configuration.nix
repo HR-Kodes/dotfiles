@@ -2,14 +2,14 @@
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running ‘nixos-help’).
 
-{ config, pkgs, lib , wm, inputs, ... }:
+{ config, pkgs, lib , systemSettings, userSettings, inputs, ... }:
 
 {
   imports = [
     ./hardware-configuration.nix
     ../../system/theme/fonts.nix
     ../../system/pkgs
-    (./. + "../../../system/wm" + ("/" + wm) + ".nix")
+    (./. + "../../../system/wm" + ("/" + userSettings.wm) + ".nix")
     # ../../system/apps/mpd/mpd.nix
   ];
 
@@ -28,7 +28,7 @@
   boot.loader.efi.canTouchEfiVariables = true;
   boot.loader.efi.efiSysMountPoint = "/boot";
 
-  networking.hostName = "nixos"; # Hostname.
+  networking.hostName = systemSettings.hostname; # Hostname.
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
 
   # Configure network proxy if necessary
@@ -39,21 +39,21 @@
   networking.networkmanager.enable = true;
 
   # Time zone.
-  time.timeZone = "Asia/Kolkata";
+  time.timeZone = systemSettings.timezone;
 
   # Internationalisation properties.
-  i18n.defaultLocale = "en_IN";
+  i18n.defaultLocale = systemSettings.locale;
 
   i18n.extraLocaleSettings = {
-    LC_ADDRESS = "en_IN";
-    LC_IDENTIFICATION = "en_IN";
-    LC_MEASUREMENT = "en_IN";
-    LC_MONETARY = "en_IN";
-    LC_NAME = "en_IN";
-    LC_NUMERIC = "en_IN";
-    LC_PAPER = "en_IN";
-    LC_TELEPHONE = "en_IN";
-    LC_TIME = "en_IN";
+    LC_ADDRESS = systemSettings.locale;
+    LC_IDENTIFICATION = systemSettings.locale;
+    LC_MEASUREMENT = systemSettings.locale;
+    LC_MONETARY = systemSettings.locale;
+    LC_NAME = systemSettings.locale;
+    LC_NUMERIC = systemSettings.locale;
+    LC_PAPER = systemSettings.locale;
+    LC_TELEPHONE = systemSettings.locale;
+    LC_TIME = systemSettings.locale;
   };
 
   # Keymap in X11.
@@ -72,18 +72,18 @@
    };
 
   environment.variables = {
-    NIXPKGS_ALLOW_UNFREE = "1";
-    XDG_CURRENT_DESKTOP = "Hyprland";
-    XDG_SESSION_TYPE = "wayland";
-    XDG_SESSION_DESKTOP = "Hyprland";
-    GDK_BACKEND = "wayland";
-    CLUTTER_BACKEND = "wayland";
+    NIXPKGS_ALLOW_UNFREE = systemSettings.allowUnfreePkgs;
+    XDG_CURRENT_DESKTOP = if (userSettings.wm == "hyprland") then "Hyprland" else "x11";
+    XDG_SESSION_TYPE = userSettings.wmType;
+    XDG_SESSION_DESKTOP = if (userSettings.wm == "hyprland") then "Hyprland" else "x11";
+    GDK_BACKEND = userSettings.wmType;
+    CLUTTER_BACKEND = userSettings.wmType;
    };
 
   # Defining user account. Set a password with ‘passwd’.
-  users.users.koushikhr = {
+  users.users.${userSettings.username} = {
     isNormalUser = true;
-    description = "Koushik H R";
+    description = userSettings.name;
     extraGroups = [ "networkmanager" "wheel" ];
     packages = with pkgs; [];
   };
@@ -98,7 +98,13 @@
   ];
 
   # Thunar dependencies.
-  programs.thunar.enable = true;
+  programs.thunar = {
+      enable = true;
+      plugins = with pkgs.xfce; [
+        thunar-archive-plugin
+        thunar-volman
+      ];
+    };
   services.gvfs.enable = true; # Mount, trash, and other functionalities
   services.tumbler.enable = true; # Thumbnail support for images
 
@@ -107,6 +113,18 @@
       auth include login
      '';
    };
+
+  environment.etc = {
+    "xdg/gtk-2.0/gtkrc".text = "gtk-application-prefer-dark-theme=true";
+    "xdg/gtk-3.0/settings.ini".text = ''
+      [Settings]
+      gtk-application-prefer-dark-theme=true
+    '';
+    "xdg/gtk-4.0/settings.ini".text = ''
+      [Settings]
+      gtk-application-prefer-dark-theme=true
+    '';
+};
 
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.

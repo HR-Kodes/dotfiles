@@ -16,7 +16,7 @@
       
       # Add an image as a background 
       # image=~/.cache/current_wallpaper.jpg
-      image = "$HOME/Pictures/Wallpapers/astronaut_jellyfish.jpg";
+      # image = "$HOME/Pictures/Wallpapers/astronaut_jellyfish.jpg";
       
       # Fade in time
       fade-in = "1";
@@ -33,15 +33,18 @@
       # bigger indicator
       # indicator-radius = 300;
       
-      indicator-thickness = "20";
+      indicator-thickness = "0";
       indicator-caps-lock = true;
       
       # Define all colors
       
-      key-hl-color = "#00000066";
-      separator-color = "#00000000";
+      # key-hl-color = "#00000066";
+      key-hl-color = "#ffffff00";
+      # separator-color = "#00000000";
+      separator-color = "#ffffff00";
       
-      inside-color = "#00000033";
+      # inside-color = "#00000033";
+      inside-color = "#ffffff00";
       inside-clear-color = "#ffffff00";
       inside-caps-lock-color = "#ffffff00";
       inside-ver-color = "#ffffff00";

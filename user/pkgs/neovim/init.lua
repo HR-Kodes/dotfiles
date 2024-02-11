@@ -9,15 +9,18 @@ vim.opt.rtp:prepend(vim.env.LAZY or lazypath)
 require("lazy").setup({
   spec = {
     { "LazyVim/LazyVim", import = "lazyvim.plugins" },
-    -- { import = "lazyvim.plugins.extras.lang.typescript" },
-    -- { import = "lazyvim.plugins.extras.lang.json" },
-    -- { import = "lazyvim.plugins.extras.ui.mini-animate" },
+    { import = "lazyvim.plugins.extras.lang.typescript" },
+    { import = "lazyvim.plugins.extras.lang.json" },
+    { import = "lazyvim.plugins.extras.ui.mini-animate" },
   },
   defaults = {
     lazy = false,
     version = false, -- always use the latest git commit leave it as is
   },
-  install = { colorscheme = { "tokyonight", "habamax" } },
+  install = { colorscheme = { 
+  --  "tokyonight",
+    "habamax"
+  } },
   checker = { enabled = true }, -- automatically check for plugin updates
   performance = {
     rtp = {
@@ -33,4 +36,7 @@ require("lazy").setup({
       },
     },
   },
+  opts = {
+      colorscheme = "habamax",
+    }
 })

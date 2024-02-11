@@ -1,0 +1,278 @@
+* {
+/*  
+    font-family: "Fira Sans Semibold", FontAwesome, Roboto, Helvetica, Arial, sans-serif;
+*/  
+  
+    font-family: "FontAwesome";
+
+/*
+    font-family: JetBrainsMono Nerd Font, Font Awesome, sans-serif;
+*/
+    border: none;
+    border-radius: 0px;
+}
+
+
+window#waybar {
+    /* background-color: rgba(0,0,0,0.8); */
+    background-color: rgba(255,255,255,0.1);
+    /* background-color: rgba(0,0,0,0.2); */
+    border-bottom: 0px solid #ffffff;
+    /* color: #FFFFFF; */
+    /* background: transparent; */
+    transition-property: background-color;
+    transition-duration: .5s;
+}
+
+/* -----------------------------------------------------
+ * Workspaces 
+ * ----------------------------------------------------- */
+
+#workspaces {
+    background: #000000;
+    margin: 2px 1px 2px 1px;
+    padding: 0px 1px;
+    border-radius: 15px;
+    border: 0px;
+    font-weight: bold;
+    font-style: normal;
+    opacity: 0.8;
+    font-size: 0.9rem;
+    color: #FFFFFF;
+}
+
+#custom-appmenu, #custom-appmenuwlr {
+    background-color: #000000;
+    font-size: 0.9rem;
+    color: #FFFFFF;
+    border-radius: 15px;
+    padding: 0px 10px 0px 10px;
+    margin: 2px 15px 2px 14px;
+    opacity:0.8;
+    border:3px solid #000000;
+}
+
+#taskbar {
+    background: #000000;
+    margin: 2px 5px 2px 0px;
+    padding:0px;
+    border-radius: 15px;
+    font-weight: normal;
+    font-style: normal;
+    opacity:0.8;
+    border: 3px solid #000000;
+}
+#taskbar button {
+    margin:0;
+    border-radius: 15px;
+    padding: 0px 5px 0px 5px;
+}
+
+#custom-browser,
+#custom-filemanager,
+#custom-cliphist {
+    margin-right: 23px;
+    font-size: 1.5rem;
+    font-weight: bold;
+    opacity: 0.8;
+    color: #000000;
+}
+
+#custom-cliphist {
+    margin-left: 5px;
+}
+
+#window {
+    background: #000000;
+    margin: 2px 5px 2px 0px;
+    padding: 2px 10px 0px 10px;
+    border-radius: 12px;
+    color: #FFFFFF;
+    font-size: 0.9rem;
+    font-weight: normal;
+    opacity: 0.8;
+}
+
+window#waybar.empty #window {
+    background-color:transparent;
+}
+
+/* -----------------------------------------------------
+ * Pulseaudio
+ * ----------------------------------------------------- */
+
+#pulseaudio {
+    background-color: #000000;
+    font-size: 0.9rem;
+    color: #FFFFFF;
+    border-radius: 15px;
+    padding: 2px 10px 0px 10px;
+    margin: 2px 5px 2px 0px;
+    opacity:0.8;
+}
+
+#pulseaudio.muted {
+    background-color: #000000;
+    color: #FFFFFF;
+}
+
+
+/* -----------------------------------------------------
+ * Bluetooth
+ * ----------------------------------------------------- */
+
+#bluetooth, #bluetooth.on, #bluetooth.connected {
+    background-color: #000000;
+    font-size: 0.9rem;
+    color: #FFFFFF;
+    border-radius: 15px;
+    padding: 2px 10px 0px 10px;
+    margin: 2px 5px 2px 0px;
+    opacity:0.8;
+}
+
+#bluetooth.off {
+    background-color: transparent;
+    padding: 0px;
+    margin: 0px;
+}
+
+/* -----------------------------------------------------
+ * Battery
+ * ----------------------------------------------------- */
+
+#battery {
+    background-color: #000000;
+    font-size: 0.9rem;
+    color: #FFFFFF;
+    border-radius: 15px;
+    padding: 2px 15px 0px 10px;
+    margin: 2px 5px 2px 0px;
+    opacity:0.8;
+}
+
+#battery.charging, #battery.plugged {
+    color: #FFFFFF;
+    background-color: #000000;
+}
+
+@keyframes blink {
+    to {
+        background-color: #000000;
+        color: #FFFFFF;
+    }
+}
+
+#battery.critical:not(.charging) {
+    background-color: #f53c3c;
+    color: #000000;
+    animation-name: blink;
+    animation-duration: 0.5s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+}
+
+/* -----------------------------------------------------
+ * Network
+ * ----------------------------------------------------- */
+
+#network {
+    background-color: #000000;
+    font-size: 0.9rem;
+    color: #FFFFFF;
+    border-radius: 15px;
+    padding: 2px 15px 0px 10px;
+    margin: 2px 5px 2px 0px;
+    opacity:0.8;
+}
+
+#network.ethernet {
+    background-color: #000000;
+    color: #FFFFFF;
+}
+
+#network.wifi {
+    background-color: #000000;
+    color: #FFFFFF;
+}
+
+/* -----------------------------------------------------
+ * Hardware Group
+ * ----------------------------------------------------- */
+
+#disk,#memory,#cpu,#language {
+    margin:0px;
+    padding:0px;
+    font-size: 0.9rem;
+    color: #000000;
+}
+
+#language {
+    margin-right: 5px;
+}
+
+/* -----------------------------------------------------
+ * Idle Inhibator
+ * ----------------------------------------------------- */
+
+#idle_inhibitor {
+    margin-right: 10px;
+    font-size: 1.5rem;
+    font-weight: bold;
+    opacity: 0.8;
+    color: #000000;
+}
+
+#idle_inhibitor.activated {
+    margin-right: 10px;
+    font-size: 1.5rem;
+    font-weight: bold;
+    opacity: 0.8;
+    color: #dc2f2f;
+}
+
+/* -----------------------------------------------------
+ * Tray
+ * ----------------------------------------------------- */
+
+#tray {
+    padding: 0px 15px 0px 0px;
+}
+
+#tray > .passive {
+    -gtk-icon-effect: dim;
+}
+
+#tray > .needs-attention {
+    -gtk-icon-effect: highlight;
+}
+
+
+/* -----------------------------------------------------
+ * Clock
+ * ----------------------------------------------------- */
+
+#clock {
+    background-color: #000000;
+    font-size: 0.9rem;
+    color: #FFFFFF;
+    border-radius: 15px;
+    padding: 1px 10px 0px 10px;
+    margin: 5px 15px 5px 0px;
+    /* margin: 3px 15px 3px 0px; */
+    opacity:0.8;
+    border:3px solid #000000;   
+}
+
+/* -----------------------------------------------------
+ * Custom Exit
+ * ----------------------------------------------------- */
+
+#custom-exit {
+    margin: 0px 10px 0px 0px;
+    padding: 0px;
+    font-size: 1.5rem;
+    color: #000000;
+}
+

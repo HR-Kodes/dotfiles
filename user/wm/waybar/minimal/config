@@ -9,12 +9,11 @@
 
     // Modules Definition.
     "modules-left": [
-      "custom/appmenu",
-      "wlr/taskbar",
+      "custom/appmenuicon",
+      "hyprland/workspaces",
       "group/quicklinks",
-      "hyprland/window"
      ],
-    "modules-center": ["hyprland/workspaces"],
+    "modules-center": [ "hyprland/window" ],
     "modules-right": [
       "pulseaudio",
       "bluetooth",
@@ -31,6 +30,12 @@
     // Modules configuration
     "custom/appmenu": {
         "format": "Apps",
+        "on-click": "wofi --show drun -a -I",
+        "tooltip": false
+    },
+    // Wofi Application Launcher
+    "custom/appmenuicon": {
+        "format": "",
         "on-click": "wofi --show drun -a -I",
         "tooltip": false
     },

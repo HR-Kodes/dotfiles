@@ -11,24 +11,48 @@
 
   let
     lib = nixpkgs.lib;
-    system = "x86_64-linux";
-    pkgs = import nixpkgs {
-      inherit system;
-      config = {
-        allowUnfree = true;
-       };
-     };
+
+    # ---- SYSTEM SETTINGS ---- #
+    systemSettings = {
+      system = "x86_64-linux"; # system arch
+      hostname = "nixos"; # hostname
+      profile = "laptop"; # select a profile defined from my profiles directory
+      timezone = "Asia/Kolkata"; # select timezone
+      locale = "en_IN"; # select locale
+      allowUnfreePkgs = "1";
+    };
 
     # ----- USER SETTINGS ----- #
-    wm = "hyprland";
+    userSettings = rec {
+      username = "koushikhr"; # username
+      name = "Koushik H R"; # name/identifier
+      email = "koushikhr1441@gmail.com"; # email (used for certain configurations)
+      dotfilesDir = "~/.dotfiles"; # absolute path of the local repo
+      theme = "manhattan-gtk-theme"; # selcted theme from my themes directory (./themes/)
+      wm = "hyprland"; # Selected window manager or desktop environment; must select one in both ./user/wm/ and ./system/wm/
+      # window manager type (hyprland or x11) translator
+      wmType = if (wm == "hyprland") then "wayland" else "x11";
+      term = "foot"; # Default terminal command;
+      font = "Intel One Mono"; # Selected font
+      fontPkg = pkgs.intel-one-mono; # Font package
+    };
+    
+    pkgs = import nixpkgs {
+      system =  systemSettings.system;
+      config = {
+        allowUnfree = true;
+      };
+    };
+
   in {
     nixosConfigurations = {
       nixos = lib.nixosSystem {
-        inherit system;
-        modules = [ ./profiles/laptop/configuration.nix ];
+        system = systemSettings.system;
+        modules = [ (./. + "/profiles"+("/"+systemSettings.profile)+"/configuration.nix") ];
         specialArgs = {
           # Pass config variables from above to make this modular.
-	  inherit wm;
+          inherit systemSettings;
+          inherit userSettings;
          };
        };
      };
@@ -36,10 +60,11 @@
     homeConfigurations = {
       koushikhr = home-manager.lib.homeManagerConfiguration {
         inherit pkgs;
-        modules = [ ./profiles/laptop/home.nix ];
+        modules = [ (./. + "/profiles"+("/"+systemSettings.profile)+"/home.nix") ];
         extraSpecialArgs = {
           # Pass config variables from above to make this modular.
-          inherit wm;
+          inherit systemSettings;
+          inherit userSettings;
          };
        };
      };

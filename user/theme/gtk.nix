@@ -1,6 +1,19 @@
 { config, pkgs, lib, ... }:
 
 {
+  home.packages = with pkgs; [
+    dconf
+  ];
+
+  # dconf = {
+  #   enable = true;
+  #   settings = {
+  #     "org/gnome/desktop/interface" = {
+  #       color-scheme = "prefer-dark";
+  #     };
+  #  };
+  # };
+
   gtk = {
     enable = true;
     font = {
@@ -11,6 +24,7 @@
       size = 10.5;
       package = pkgs.nerdfonts;
      };
+
     theme = {
       #name = "Catppuccin-Mocha-Compact-Lavender-Dark";
       #package = pkgs.catppuccin-gtk.override {
@@ -20,24 +34,40 @@
       #  variant = "mocha";
       # };
 
-      name = "Manhattan-Soft";
-      package = pkgs.callPackage ../../packages/manhattan-gtk-theme.nix { };
+      name = "Everforest-Dark-B";
+      package = pkgs.callPackage ../../packages/gtk/everforest-gtk-theme.nix { };
+      
+      # name = "Colorful-Dark-GTK";
+      # package = pkgs.callPackage ../../packages/gtk/colorful-plasma-gtk-theme.nix { };
+      
+      # name = "Manhattan-Soft";
+      # package = pkgs.callPackage ../../packages/icons/manhattan-gtk-theme.nix { };
      };
+
     iconTheme = {
+      # name = "BeautyLine";
+      # package = pkgs.beauty-line-icon-theme;
+
       # name = "Gruvbox Plus Dark";
-      # package = pkgs.callPackage ../../packages/gruvbox-plus-dark.nix { };
+      # package = pkgs.callPackage ../../packages/icons/gruvbox-plus-dark.nix { };
 
       # name = "Everforest-Dark";
-      # package = pkgs.callPackage ../../packages/everforest-gtk-theme.nix { };
+      # package = pkgs.callPackage ../../packages/gtk/everforest-gtk-theme.nix { };
 
-      name = "Lüv";
-      package = pkgs.callPackage ../../packages/luv-icon-theme.nix { };
+      name = "Colorful-Dark-Icons";
+      package = pkgs.callPackage ../../packages/gtk/colorful-plasma-gtk-theme.nix { };
+      
+      # name = "Lüv";
+      # package = pkgs.callPackage ../../packages/icons/luv-icon-theme.nix { };
       
      };
-    # cursorTheme = {
-    #   name = "Bibata-Modern-Ice";
-    #   package = pkgs.bibata-cursors;
-    #  };
+    cursorTheme = {
+      name = "Bibata-Modern-Ice";
+      package = pkgs.bibata-cursors;
+      
+      # name = "Qogir-cursors";
+      # package = pkgs.qogir-icon-theme;
+    };
 
     gtk3.extraConfig = {
       Settings = ''
