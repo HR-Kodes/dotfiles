@@ -128,7 +128,7 @@
 
     // Bluetooth
     "bluetooth": {
-        "format": "<span background=\"#f00\">  </span> {status}",
+        "format": " {status}",
         "format-disabled": "",
         "format-off": "",
         "interval": 30,

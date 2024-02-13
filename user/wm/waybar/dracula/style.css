@@ -1,0 +1,140 @@
+* {
+    font-family: JetBrainsMono;
+}
+
+window#waybar {
+    background: #20262C;
+}
+
+#custom-appmenu{
+    font-size: 1.25rem;
+    background-color: #2A323B;
+    padding: 0.25rem 1rem 0.25rem 0.25rem;
+    border-top-right-radius: 1rem;
+}
+
+#taskbar {
+}
+
+#hardware {
+    margin: 0.25rem;
+}
+
+#custom-network-icon {
+    font-size: 1rem;
+}
+
+#network {
+}
+
+.modules-right > :nth-child(1) {
+    margin: 0.25rem;    
+}
+.modules-right > :nth-child(1) > :nth-child(1) {
+    font-size: 1.1rem;
+    color: #F1FCF9;
+    background-color: #353F4A;
+    border-top-left-radius: 1rem;
+    border-bottom-left-radius: 1rem;
+}
+.modules-right > :nth-child(1) > :nth-child(2) {
+    font-size: 0.95rem;
+    color: #F1FCF9;
+    background-color: #2A323B;
+    border-top-right-radius: 1rem;
+    border-bottom-right-radius: 1rem;
+}
+
+
+.modules-right > :nth-child(3) {
+    margin: 0.25rem;    
+}
+.modules-right > :nth-child(3) > :nth-child(1) {
+    font-size: 1.1rem;
+    color: #F1FCF9;
+    background-color: #353F4A;
+    border-top-left-radius: 1rem;
+    border-bottom-left-radius: 1rem;
+}
+.modules-right > :nth-child(3) > :nth-child(2) {
+    font-size: 0.95rem;
+    color: #F1FCF9;
+    background-color: #2A323B;
+    border-top-right-radius: 1rem;
+    border-bottom-right-radius: 1rem;
+}
+
+
+.modules-right > :nth-child(4) {
+    margin: 0.25rem;    
+}
+.modules-right > :nth-child(4) > :nth-child(1) {
+    font-size: 1.1rem;
+    color: #F1FCF9;
+    background-color: #353F4A;
+    border-top-left-radius: 1rem;
+    border-bottom-left-radius: 1rem;
+}
+.modules-right > :nth-child(4) > :nth-child(2) {
+    font-size: 0.95rem;
+    color: #F1FCF9;
+    background-color: #2A323B;
+    border-top-right-radius: 1rem;
+    border-bottom-right-radius: 1rem;
+}
+
+
+.modules-right > :nth-child(5) {
+    margin: 0.25rem;    
+}
+.modules-right > :nth-child(5) > :nth-child(1) {
+    font-size: 1rem;
+    color: #F1FCF9;
+    background-color: #353F4A;
+    border-top-left-radius: 1rem;
+    border-bottom-left-radius: 1rem;
+}
+.modules-right > :nth-child(5) > :nth-child(2) {
+    font-size: 0.9rem;
+    color: #F1FCF9;
+    background-color: #2A323B;
+    border-top-right-radius: 1rem;
+    border-bottom-right-radius: 1rem;
+}
+
+#workspaces {
+    background-color: #2A323B;
+    padding: 0rem;
+    border-radius: 1rem;
+    font-size: 0.9rem;
+    margin: 0.25rem;
+}
+#workspaces button {
+    padding: 0.25rem;
+    color: #F1FCF9;
+    font-weight: 500;
+}
+#workspaces button.active {
+    background-color: #20262C;
+    border-radius: 0rem;
+}
+
+/* 
+#taskbar {
+    border-radius: 0px 8px 8px 0;
+    padding: 0 3px;
+    margin: 0 0px;
+    color: #ffffff;
+    background-color: rgba(120,118,117,0.3);
+}
+#taskbar button {
+    border-radius: 3px 3px 3px 3px;
+    padding: 0 0 0 3px;
+    margin: 3px 1;
+    color: #ffffff;
+    background-color: rgba(120,118,117,0.1);
+}
+#taskbar button.active {
+    background-color: rgba(120,118,117,0.8);
+} 
+*/

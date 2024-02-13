@@ -1,0 +1,248 @@
+{
+    "layer": "top",
+    "margin-bottom": 0,
+    "margin-left": 0,
+    "margin-right": 0,    
+    "spacing": 0,
+
+    // Modules Definition.
+    "modules-left": [
+        "custom/appmenu",
+        "wlr/taskbar"        
+      ],
+    "modules-center": [
+      "hyprland/workspaces"
+    ],
+    "modules-right": [
+      "group/pulseaudios",
+      "group/brightness",
+      "group/batteries",
+      "group/bluetooth",
+      "group/networks"
+     ],
+
+   // Modules Configuration.
+   "custom/appmenu": {
+        "format": "<span color=\"#B4A1DB\"></span>",
+        "width": 20,
+        "height": 20,
+        "on-click": "rofi -show drun -show-icons",
+        "tooltip": false
+      },
+   
+   "wlr/taskbar": {
+         "format": "{icon}",
+         "icon-size": 18,
+         "tooltip-format": "{title}",
+         "on-click": "activate",
+         "on-click-middle": "close",
+         "ignore-list": [
+            "Alacritty"
+            // "foot"
+         ],
+         "app_ids-mapping": {
+             "firefoxdeveloperedition": "firefox-developer-edition",
+             "youtube-music": "youtube"
+         },
+         "rewrite": {
+             "Firefox Web Browser": "Firefox",
+             "Foot Server": "Terminal",
+             "youtube-music": "Music"
+         }
+     },
+
+   "group/pulseaudios": {
+      "orientation": "horizontal",
+      "modules": [
+         "pulseaudio#icon",
+         "pulseaudio#text"
+      ]
+   },
+   "pulseaudio#icon": {
+      // "scroll-step": 1, // %, can be a float
+      "format": "<span color=\"#75DBE1\"> {icon} </span>",
+      "format-bluetooth": "{icon} {format_source}",
+      "format-bluetooth-muted": " {icon} {format_source}",
+      "format-muted": " {format_source}",
+      "format-source": "",
+      "format-source-muted": "",
+      "format-icons": {
+          "headphone": " ",
+          "hands-free": " ",
+          "// hands-free": "",
+          "headset": " ",
+          // "headset": "",
+          "phone": "",
+          "portable": "",
+          "car": "",
+          "default": ["", " ", " "]
+      },
+      "on-click": "pavucontrol"
+  },
+  "pulseaudio#text": {
+   // "scroll-step": 1, // %, can be a float
+   "format": " {volume}% ",
+   "format-bluetooth": "{volume}% {format_source}",
+   "format-bluetooth-muted": "{format_source}",
+   "format-muted": "{format_source}",
+   "format-source": "{volume}%",
+   "format-source-muted": "",
+   "on-click": "pavucontrol"
+},
+
+"group/brightness": {
+   "orientation": "horizontal",
+   "modules": [
+      "brightness#icon",
+      "brightness#text"
+   ]
+},
+
+
+"group/batteries": {
+   "orientation": "horizontal",
+   "modules": [
+      "battery#icon",
+      "battery#text"
+   ]
+},
+
+    // Battery
+    "battery#icon": {
+      "states": {
+          // "good": 95,
+          "warning": 30,
+          "critical": 15
+      },
+      "format": "<span color=\"#9EE9EA\"> {icon}</span>",
+      "format-charging": "  ",
+      "format-plugged": "  ",
+      "format-alt": " {icon} ",
+      // "format-good": "", // An empty format will hide the module
+      // "format-full": "",
+      "format-icons": ["󰂎 ", "󰁺 ", "󰁻 ", "󰁼 ", "󰁽 ", "󰁾 ", "󰁿 ", "󰂀 ", "󰂁 ", "󰂂 ", "󰁹 "]
+  },
+
+      // Battery
+      "battery#text": {
+         "states": {
+             // "good": 95,
+             "warning": 30,
+             "critical": 15
+         },
+         "format": " {capacity}% ",
+         "format-charging": " {capacity}%",
+         "format-plugged": " {capacity}%",
+         "format-alt": " {time}",
+         // "format-good": "", // An empty format will hide the module
+         // "format-full": "",
+         "format-icons": [" ", " ", " ", " ", " "]
+     },
+ 
+
+     "group/bluetooth": {
+      "orientation": "horizontal",
+      "modules": [
+         "bluetooth#icon",
+         "bluetooth#text"
+      ]
+   },
+
+       // Bluetooth
+   "bluetooth#icon": {
+         "format": "<span color=\"#74DD91\">  </span>",
+         "format-disabled": "",
+         "format-off": "",
+         "interval": 30,
+         "on-click": "blueman-manager"
+     },
+         // Bluetooth
+    "bluetooth#text": {
+      "format": " {status} ",
+      "format-disabled": "",
+      "format-off": "",
+      "interval": 30,
+      "on-click": "blueman-manager"
+  },
+
+
+"group/networks": {
+   "orientation": "horizontal",
+      "modules": [
+         "network#icon",
+         "network#text"
+      ]
+},
+"network#icon": {
+      "format": "{ifname}",
+      "format-wifi": "<span color=\"#E49186\">   </span>",
+      "format-ethernet": "   ",
+      "tooltip": false,
+      "max-length": 50
+      // "on-click": "~/dotfiles/.settings/networkmanager.sh"
+}, 
+  "network#text": {
+   "format": "{ifname}",
+   "format-wifi": "<span background=\"#2A323B\">  {signalStrength}% </span>",
+   "format-ethernet": "  {ifname} ",
+   "format-disconnected": "  Disconnected ",
+   "tooltip-format": " {ifname} via {gwaddri}",
+   "tooltip-format-wifi": "  {ifname} @ {essid}\nIP: {ipaddr}\nStrength: {signalStrength}%\nFreq: {frequency}MHz\nUp: {bandwidthUpBits} Down: {bandwidthDownBits}",
+   "tooltip-format-ethernet": " {ifname}\nIP: {ipaddr}\n up: {bandwidthUpBits} down: {bandwidthDownBits}",
+   "tooltip-format-disconnected": "Disconnected",
+   "max-length": 50
+   // "on-click": "~/dotfiles/.settings/networkmanager.sh"
+},
+
+   "pulseaudio": {
+      // "scroll-step": 1, // %, can be a float
+      "format": "{icon} {volume}%",
+      "format-bluetooth": "{volume}% {icon} {format_source}",
+      "format-bluetooth-muted": " {icon} {format_source}",
+      "format-muted": " {format_source}",
+      "format-source": "{volume}% ",
+      "format-source-muted": "",
+      "format-icons": {
+          "headphone": " ",
+          "hands-free": " ",
+          "// hands-free": "",
+          "headset": " ",
+          // "headset": "",
+          "phone": "",
+          "portable": "",
+          "car": "",
+          "default": ["", " ", " "]
+      },
+      "on-click": "pavucontrol"
+  },
+
+
+
+  // Bluetooth
+  "bluetooth": {
+      "format": " {status}",
+      "format-disabled": "",
+      "format-off": "",
+      "interval": 30,
+      "on-click": "blueman-manager"
+  },
+
+  "hyprland/workspaces" : {
+   // "on-click": "activate",
+   "active-only": false,
+   "all-outputs": true,
+   "on-scroll-up": "hyprctl dispatch workspace e+1",
+   "on-scroll-down": "hyprctl dispatch workspace e-1",
+   "format": "{}",
+   "format-icons": {
+     "urgent": "",
+     "focused": "",
+     "default": ""
+   },
+   "persistent-workspaces": {
+     "*": 5
+   }       
+}
+}
+
+// <span background=\"#f00\">

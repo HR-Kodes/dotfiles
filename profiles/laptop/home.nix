@@ -30,7 +30,7 @@
     ".config/hypr/hyprland.conf".source = ../../user/wm/hyprland/hyprland.conf;
     ".config/waybar" = {
       # source = ../../user/wm/waybar/blur;
-      source = ../../user/wm/waybar/blur;
+      source = ../../user/wm/waybar/dracula;
       recursive = true;
     };
     ".config/foot/foot.ini".source = ../../user/apps/foot/foot.ini;

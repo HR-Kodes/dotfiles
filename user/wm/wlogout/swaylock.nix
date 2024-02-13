@@ -10,7 +10,9 @@
 
       clock = true;
       timestr = "%R";
-      datestr = "%a, %e of %B";
+      datestr = "%a, %e , %B";
+      # datestr = "${dateWithSup}/bin/dateWithSup";
+      # datestr = pkgs.runShellHook ./date-sup.sh;
 
       screenshots = true;
       
@@ -39,7 +41,7 @@
       # Define all colors
       
       # key-hl-color = "#00000066";
-      key-hl-color = "#ffffff00";
+      key-hl-color = "#880033";
       # separator-color = "#00000000";
       separator-color = "#ffffff00";
       
