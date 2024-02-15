@@ -16,9 +16,9 @@
   home.packages = with pkgs; [
     # Add home packages to install for user.
     foot vivaldi insomnia
-    clipman libnotify htop unzip xarchiver swww
+    libnotify htop unzip xarchiver swww
     grim slurp swappy viewnior
-    mpv wl-clipboard wf-recorder
+    mpv wl-clipboard wf-recorder cliphist
     brightnessctl
     youtube-music qbittorrent
     gimp

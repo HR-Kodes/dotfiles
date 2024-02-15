@@ -114,6 +114,8 @@
      '';
    };
 
+  programs.kdeconnect.enable = true;
+
   environment.etc = {
     "xdg/gtk-2.0/gtkrc".text = "gtk-application-prefer-dark-theme=true";
     "xdg/gtk-3.0/settings.ini".text = ''
@@ -125,6 +127,9 @@
       gtk-application-prefer-dark-theme=true
     '';
 };
+
+  # hardware.pulseaudio.extraConfig = "load-module module-native-protocol-tcp auth-ip-acl=127.0.0.1";
+
 
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
@@ -138,6 +143,14 @@
 
   # Enable the OpenSSH daemon.
   # services.openssh.enable = true;
+
+
+networking = {
+    firewall.enable = true;
+    firewall.allowedTCPPortRanges = [ { from = 1714; to = 1764;} ]; # for Gsconnect
+    firewall.allowedUDPPortRanges = [ { from = 1714; to = 1764;} ]; # for Gsconnect
+  };
+
 
   # Open ports in the firewall.
   # networking.firewall.allowedTCPPorts = [ ... ];

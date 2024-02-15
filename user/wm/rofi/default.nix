@@ -2,7 +2,7 @@
 {
   programs.rofi = {
     enable = true;
-    theme = ./theme-1.rasi;
+    theme = ./theme-2.rasi;
     # terminal = "${pkgs.cool-retro-term}/bin/cool-retro-term";
   };
 
