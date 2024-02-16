@@ -93,7 +93,7 @@
 
   # Packages installed in system profile.
   environment.systemPackages = with pkgs; [
-    wget neofetch mako
+    wget neofetch mako lsof
     # mpd
   ];
 

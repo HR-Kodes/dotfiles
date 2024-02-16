@@ -21,7 +21,7 @@
     mpv wl-clipboard wf-recorder cliphist
     brightnessctl
     youtube-music qbittorrent
-    gimp
+    gimp stremio brave
 
     (import ../../user/bin/wallsetter.nix { inherit pkgs; })
    ];
@@ -42,6 +42,7 @@
        source = ../../user/wm/wlogout/icons;
        recursive = true;
     };
+
     "Documents/programming/.envrc".source = ../../user/dev/direnv/dotenvrc;
    };
 

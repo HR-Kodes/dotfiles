@@ -26,10 +26,13 @@
         # Optional:
         network.listenAddress = "any"; # if you want to allow non-localhost connections
         startWhenNeeded = true;
+        # network = {
+        #   startWhenNeeded = true;
+        # };
     };
 
-  systemd.services.mpd.environment = {
-      XDG_RUNTIME_DIR =
-          "/run/user/1000"; # User-id 1000 must match above user. MPD will look inside this directory for the PipeWire socket.
-      };
+  # systemd.services.mpd.environment = {
+  #     XDG_RUNTIME_DIR =
+  #         "/run/user/1000"; # User-id 1000 must match above user. MPD will look inside this directory for the PipeWire socket.
+  #     };
 }

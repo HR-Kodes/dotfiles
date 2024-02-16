@@ -39,6 +39,39 @@ window#waybar {
 }
 
 
+.modules-left > :nth-child(3) > :nth-child(1) {
+    margin: 0.15rem;
+}
+.modules-left > :nth-child(3) > :nth-child(1) {
+    font-size: 1rem;
+    color: #F1FCF9;
+    background-color: #353F4A;
+    padding: 0.25rem;
+    border-radius: 1rem;
+}
+.modules-left > :nth-child(3) > :nth-child(1) > :nth-child(1) {
+    font-size: 1rem;
+    color: #F1FCF9;
+    padding: 0.25rem;
+    /* margin-left: 0.5rem; */
+    /* margin-right: 0.5rem; */
+}
+.modules-left > :nth-child(3) > :nth-child(1) > :nth-child(2) {
+    font-size: 1rem;
+    color: #F1FCF9;
+    padding: 0.25rem;
+    /* margin-left: 0.5rem; */
+    /* margin-right: 0.5rem; */
+}
+.modules-left > :nth-child(3) > :nth-child(1) > :nth-child(3) {
+    font-size: 1rem;
+    color: #F1FCF9;
+    padding: 0.5rem;
+    /* margin-left: 0.5rem; */
+    /* margin-right: 0.5rem; */
+}
+
+
 #taskbar {
 
 }

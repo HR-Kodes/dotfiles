@@ -8,8 +8,8 @@
   // Modules Definition.
   "modules-left": [
       "custom/appmenu",
-      "group/quicklinks"
-      // "mpd"
+      "group/quicklinks",
+      "group/mpd"
     ],
   "modules-center": [
     "group/downbits",
@@ -66,13 +66,69 @@
 },
 
 
+"group/mpd": {
+  "orientation": "horizontal",
+  "modules": [
+      "group/mpd-icons",
+      "mpd#text"
+   ]
+},
+"mpd#text": {
+  "format": "{artist} - {title}",
+	"format-disconnected": "Disconnected",
+	"format-stopped": "{consumeIcon}{randomIcon}{repeatIcon}{singleIcon}Stopped",
+	"interval": 2,
+	"tooltip-format": "MPD (connected) ({elapsedTime:%M:%S}/{totalTime:%M:%S})",
+	"tooltip-format-disconnected": "MPD (disconnected)"
+},
+
+"group/mpd-icons": {
+  "orientation": "horizontal",
+  "modules": [
+      "custom/mpd-prev",
+      "mpd#toggle",
+      "custom/mpd-next"
+   ]
+},
+
+"custom/mpd-prev": {
+  "format": " 󰒮 ",
+	"interval": 2,
+  "on-click": "mpc prev 2>/dev/null",
+  "tooltip": "Play Previous",
+	"tooltip-format": "MPD (connected) ({elapsedTime:%M:%S}/{totalTime:%M:%S})",
+	"tooltip-format-disconnected": "MPD (disconnected)"
+},
+"mpd#toggle": {
+  "format": " {stateIcon} ",
+	"interval": 2,
+  "on-click": "mpc toggle 2>/dev/null",
+	"tooltip-format": "({elapsedTime:%M:%S}/{totalTime:%M:%S})",
+	"tooltip-format-disconnected": "MPD (disconnected)",
+	"state-icons": {
+		"paused": "<span color=\"#E49186\">󰏥</span>",
+		"playing": "<span color=\"#74DD91\"></span>"
+	}
+},
+"custom/mpd-next": {
+  "format": " 󰒭 ",
+	"interval": 2,
+  "on-click": "mpc next 2>/dev/null",
+  "tooltip": "Play Next",
+	"tooltip-format": "MPD (connected) ({elapsedTime:%M:%S}/{totalTime:%M:%S})",
+	"tooltip-format-disconnected": "MPD (disconnected)"
+},
+
+
 "mpd": {
-	"format": "{stateIcon} {consumeIcon}{randomIcon}{repeatIcon}{singleIcon}{artist} - {album} - {title} ({elapsedTime:%M:%S}/{totalTime:%M:%S}) ",
+	// "format": "{stateIcon} {consumeIcon}{randomIcon}{repeatIcon}{singleIcon}{artist} - {album} - {title} ({elapsedTime:%M:%S}/{totalTime:%M:%S}) ",
+	"format": "{stateIcon} {consumeIcon}{randomIcon}{repeatIcon}{singleIcon} {artist} - {title} ",
 	"format-disconnected": "Disconnected ",
 	"format-stopped": "{consumeIcon}{randomIcon}{repeatIcon}{singleIcon}Stopped ",
 	"interval": 2,
+  "on-click": "exec ~/.dotfiles/scripts/mpd_control.sh",
 	"consume-icons": {
-		"on": " " // Icon shows only when "consume" is on
+    "on": " " // Icon shows only when "consume" is on
 	},
 	"random-icons": {
 		"off": "<span color=\"#f53c3c\"></span> ", // Icon grayed out when "random" is off
@@ -88,9 +144,25 @@
 		"paused": "",
 		"playing": ""
 	},
-	"tooltip-format": "MPD (connected)",
+	"tooltip-format": "MPD (connected) ({elapsedTime:%M:%S}/{totalTime:%M:%S})",
 	"tooltip-format-disconnected": "MPD (disconnected)"
 },
+
+// "mpd": {
+//   "format": "{stateIcon} ",
+//   "format-disconnected": " ",
+//   "format-stopped": " ",
+//   "state-icons": {
+//     "paused": "",
+//     "playing": "",
+//     "stopped": ""
+//   },
+//   "on-click": "exec ~/.dotfiles/scripts/mpd_control.sh",
+//   "tooltip-format": "{artist}\n{album}\n{title}\n({elapsedTime:%M:%S}/{totalTime:%M:%S})",
+//   "tooltip-format-disconnected": "MPD (disconnected)",
+//   "on-click-right": "exec ~/bin/songinfo.sh"
+// },
+
 
 "group/downbits": {
   "orientation": "horizontal",

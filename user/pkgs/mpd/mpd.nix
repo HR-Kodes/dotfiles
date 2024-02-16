@@ -2,7 +2,7 @@
 
 {
     home.packages = with pkgs; [
-      mpd ncmpcpp
+      mpd ncmpcpp mpc-cli
     ];
 
     home.file = {
@@ -21,9 +21,13 @@
             sticker_file       "~/.config/mpd/sticker.sql"
 
             audio_output {  
-                type  "alsa"  
-                name  "mpd alsamixer-output"
-                mixer_type "software"
+                # type  "alsa"  
+                # name  "mpd alsamixer-output"
+                # mixer_type "software"
+
+                type		"pipe"
+                name		"my pipe"
+                command		"aplay -f cd 2>/dev/null"
             }
 
             audio_output {  
