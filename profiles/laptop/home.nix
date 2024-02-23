@@ -6,12 +6,14 @@
   home.homeDirectory = "/home/koushikhr";
   home.stateVersion = "23.11";
 
+
   imports = [
     ../../user/wm
     ../../user/theme
     ../../user/apps
     ../../user/pkgs
    ];
+
 
   home.packages = with pkgs; [
     # Add home packages to install for user.
@@ -26,10 +28,10 @@
     (import ../../user/bin/wallsetter.nix { inherit pkgs; })
    ];
 
+
   home.file = {
     ".config/hypr/hyprland.conf".source = ../../user/wm/hyprland/hyprland.conf;
     ".config/waybar" = {
-      # source = ../../user/wm/waybar/blur;
       source = ../../user/wm/waybar/dracula;
       recursive = true;
     };
@@ -46,10 +48,6 @@
     "Documents/programming/.envrc".source = ../../user/dev/direnv/dotenvrc;
    };
 
-  xdg.userDirs = {
-    enable = true;
-    createDirectories = true;
-   };
 
   programs.git = {
     enable = true;
@@ -64,6 +62,12 @@
   programs.direnv = {
     enable = true;
     nix-direnv.enable = true;
+   };
+
+
+  xdg.userDirs = {
+    enable = true;
+    createDirectories = true;
    };
 
 }

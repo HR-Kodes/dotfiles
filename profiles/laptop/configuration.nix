@@ -9,8 +9,9 @@
     ./hardware-configuration.nix
     ../../system/theme/fonts.nix
     ../../system/pkgs
+    ../../system/apps
+    ../../system/utils
     (./. + "../../../system/wm" + ("/" + userSettings.wm) + ".nix")
-    # ../../system/apps/mpd/mpd.nix
   ];
 
   # Flakes.
@@ -19,42 +20,12 @@
     experimental-features = nix-command flakes
   '';
 
-  # Bootloader.
-  boot.loader.systemd-boot.enable = false;
-  boot.loader.grub.enable = true;
-  boot.loader.grub.device = "nodev";
-  boot.loader.grub.useOSProber = true;
-  boot.loader.grub.efiSupport = true;
-  boot.loader.efi.canTouchEfiVariables = true;
-  boot.loader.efi.efiSysMountPoint = "/boot";
 
   networking.hostName = systemSettings.hostname; # Hostname.
-  # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
-
-  # Configure network proxy if necessary
-  # networking.proxy.default = "http://user:password@proxy:port/";
-  # networking.proxy.noProxy = "127.0.0.1,localhost,internal.domain";
-
-  # Enabled networking.
-  networking.networkmanager.enable = true;
 
   # Time zone.
   time.timeZone = systemSettings.timezone;
 
-  # Internationalisation properties.
-  i18n.defaultLocale = systemSettings.locale;
-
-  i18n.extraLocaleSettings = {
-    LC_ADDRESS = systemSettings.locale;
-    LC_IDENTIFICATION = systemSettings.locale;
-    LC_MEASUREMENT = systemSettings.locale;
-    LC_MONETARY = systemSettings.locale;
-    LC_NAME = systemSettings.locale;
-    LC_NUMERIC = systemSettings.locale;
-    LC_PAPER = systemSettings.locale;
-    LC_TELEPHONE = systemSettings.locale;
-    LC_TIME = systemSettings.locale;
-  };
 
   # Keymap in X11.
   services.xserver = {
@@ -62,14 +33,6 @@
     xkbVariant = "";
   };
 
-  # Portals.
-  xdg.portal = {
-    enable = true;
-    extraPortals = with pkgs; [
-      xdg-desktop-portal
-      xdg-desktop-portal-gtk
-     ];
-   };
 
   environment.variables = {
     NIXPKGS_ALLOW_UNFREE = systemSettings.allowUnfreePkgs;
@@ -94,19 +57,9 @@
   # Packages installed in system profile.
   environment.systemPackages = with pkgs; [
     wget neofetch mako lsof
-    # mpd
   ];
 
-  # Thunar dependencies.
-  programs.thunar = {
-      enable = true;
-      plugins = with pkgs.xfce; [
-        thunar-archive-plugin
-        thunar-volman
-      ];
-    };
-  services.gvfs.enable = true; # Mount, trash, and other functionalities
-  services.tumbler.enable = true; # Thumbnail support for images
+
 
   security.pam.services.swaylock = {
     text = ''
@@ -128,35 +81,6 @@
     '';
 };
 
-  # hardware.pulseaudio.extraConfig = "load-module module-native-protocol-tcp auth-ip-acl=127.0.0.1";
-
-
-  # Some programs need SUID wrappers, can be configured further or are
-  # started in user sessions.
-  # programs.mtr.enable = true;
-  # programs.gnupg.agent = {
-  #   enable = true;
-  #   enableSSHSupport = true;
-  # };
-
-  # List services that you want to enable:
-
-  # Enable the OpenSSH daemon.
-  # services.openssh.enable = true;
-
-
-networking = {
-    firewall.enable = true;
-    firewall.allowedTCPPortRanges = [ { from = 1714; to = 1764;} ]; # for Gsconnect
-    firewall.allowedUDPPortRanges = [ { from = 1714; to = 1764;} ]; # for Gsconnect
-  };
-
-
-  # Open ports in the firewall.
-  # networking.firewall.allowedTCPPorts = [ ... ];
-  # networking.firewall.allowedUDPPorts = [ ... ];
-  # Or disable the firewall altogether.
-  # networking.firewall.enable = false;
 
   # This value determines the NixOS release from which the default
   # settings for stateful data, like file locations and database versions
