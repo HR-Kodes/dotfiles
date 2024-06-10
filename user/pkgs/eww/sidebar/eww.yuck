@@ -11,47 +11,28 @@
 ;; Widgets
 
 ;; resources
-(defwidget ml4wlauncher [] 
-    (box :class "winbox"
-        (centerbox :orientation "h"
-            (box :class "ml4w-welcome" :orientation "v" :valign "center" :halign "center" :spacing 15 :space-evenly "false"
-                (button :style "background-image: url('../../../../settings/ml4w/ml4w-welcome.png');" :class "ml4w_icon" :orientation "v" :valign "center" :halign "center" :onclick "../scripts/launch_app.sh --welcome")
-                (label :class "res_text" :valign "end" :halign "center" :text "Welcome App")
-            )
-            (box :class "ml4w-dotfiles" :orientation "v" :valign "center" :halign "center" :spacing 15 :space-evenly "false"
-                (button :style "background-image: url('../../../../settings/ml4w/ml4w-dotfiles-settings.png');" :class "ml4w_icon" :orientation "v" :valign "center" :halign "center" :onclick "../scripts/launch_app.sh --dotfiles")
-                (label :class "res_text" :valign "end" :halign "center" :text "Dotfiles App")
-            )
-            (box :class "ml4w-hyprland" :orientation "v" :valign "center" :halign "center" :spacing 15 :space-evenly "false"
-                (button :style "background-image: url('../../../../settings/ml4w/ml4w-hyprland-settings.png');" :class "ml4w_icon" :orientation "v" :valign "center" :halign "center" :onclick "../scripts/launch_app.sh --hyprland")
-                (label :class "res_text" :valign "end" :halign "center" :text "Hyprland App")
-            )
-        )
-    )
-)
-
 (defwidget resources [] 
     (box :class "winbox"
         (centerbox :orientation "h"
-            (box :class "res_box" :orientation "v" :valign "center" :halign "center" :spacing 15 :space-evenly "false"
+            (box :class "res_box" :orientation "v" :valign "center" :halign "center" :spacing 10 :space-evenly "false"
                 (box :class "res_circle" :orientation "v" :valign "center" :halign "center"
-                    (circular-progress :class "res_cpu" :value CPU_USAGE :thickness 15
+                    (circular-progress :class "res_cpu" :value CPU_USAGE :thickness 10
                         (label :class "res_circle_small" :text "CPU" :show-truncated false)
                     )
                 )
                 (label :class "res_text" :valign "end" :halign "center" :text "${CPU_USAGE}%")
             )
-            (box :class "res_box" :orientation "v" :valign "center" :halign "center" :spacing 15 :space-evenly "false"
+            (box :class "res_box" :orientation "v" :valign "center" :halign "center" :spacing 10 :space-evenly "false"
                 (box :class "res_circle" :orientation "v" :valign "center" :halign "center"
-                    (circular-progress :class "res_mem" :value MEM_USAGE :thickness 15
+                    (circular-progress :class "res_mem" :value MEM_USAGE :thickness 10
                         (label :class "res_circle_small" :text "MEMORY" :show-truncated false)
                     )
                 )
                 (label :class "res_text" :valign "end" :halign "center" :text "${MEM_USAGE}%")
             )
-            (box :class "res_box" :orientation "v" :valign "center" :halign "center" :spacing 15 :space-evenly "false"
+            (box :class "res_box" :orientation "v" :valign "center" :halign "center" :spacing 10 :space-evenly "false"
                 (box :class "res_circle" :orientation "v" :valign "center" :halign "center"
-                    (circular-progress :class "res_disk" :value DISK_USAGE :thickness 15
+                    (circular-progress :class "res_disk" :value DISK_USAGE :thickness 10
                         (label :class "res_circle_small" :text "DISK" :show-truncated false)
                     )
                 )
@@ -101,7 +82,7 @@
 ;; ** Windows *************************************************************************
 
 (defwindow close
-           :geometry (geometry :x "455px"
+           :geometry (geometry :x "405px"
                                :y "-7px"
                                :width "44px"
                                :height "44px"
@@ -110,23 +91,12 @@
            :wm-ignore false
 (close))
 
-;;(defwindow ml4wlauncher
-;;           :geometry (geometry :x "5px"
-;;                               :y "5px"
-;;                               :width "480px"
-;;                               :height "140px"
-;;                               :anchor "top right")
-;;           :stacking "fg"
-;;           :wm-ignore false
-;;(ml4wlauncher))
-
 ;; resources
 (defwindow resources
            :geometry (geometry :x "5px"
-                               ;; :y "140px"
-                               :y "5px"
-                               :width "480px"
-                               :height "180px"
+                               :y "5px" ;; 140px
+                               :width "430px" ;; 480px
+                               :height "120px" ;; 180px
                                :anchor "top right")
            :stacking "fg"
            :wm-ignore false
@@ -134,51 +104,50 @@
 
 ;; powermenu
 (defwindow logout
-           :geometry (geometry :x "5px"
-                               ;; :y "318px"
-                               :y "180px"
-                               :width "80px"
-                               :height "80px"
+           :geometry (geometry :x "20px"
+                               :y "180px" ;; 318px
+                               :width "60px"
+                               :height "60px"
                                :anchor "top right")
            :stacking "fg"
            :wm-ignore false
 (logout))
 
 (defwindow suspend
-           :geometry (geometry :x "102px"
+           :geometry (geometry :x "101px" ;; 102px gap now 52px gap
                                :y "180px"
-                               :width "80px"
-                               :height "80px"
+                               :width "60px"
+                               :height "60px"
                                :anchor "top right")
            :stacking "fg"
            :wm-ignore false
 (suspend))
 
 (defwindow lock
-           :geometry (geometry :x "204px"
+           :geometry (geometry :x "187px"
                                :y "180px"
-                               :width "80px"
-                               :height "80px"
+                               :width "60px"
+                               :height "60px"
                                :anchor "top right")
            :stacking "fg"
            :wm-ignore false
 (lock))
 
 (defwindow reboot
-           :geometry (geometry :x "305px"
+           :geometry (geometry :x "273px"
                                :y "180px"
-                               :width "80px"
-                               :height "80px"
+                               :width "60px"
+                               :height "60px"
                                :anchor "top right")
            :stacking "fg"
            :wm-ignore false
 (reboot))
 
 (defwindow shutdown
-           :geometry (geometry :x "405px"
+           :geometry (geometry :x "359px"
                                :y "180px"
-                               :width "80px"
-                               :height "80px"
+                               :width "60px"
+                               :height "60px"
                                :anchor "top right")
            :stacking "fg"
            :wm-ignore false
