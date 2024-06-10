@@ -21,9 +21,11 @@
     libnotify htop unzip xarchiver swww
     grim slurp swappy viewnior
     mpv wl-clipboard wf-recorder cliphist
-    brightnessctl
-    youtube-music qbittorrent
+    brightnessctl ffmpeg
+    youtube-music qbittorrent vlc telegram-desktop
     gimp stremio brave
+
+    eww-wayland python3
 
     (import ../../user/bin/wallsetter.nix { inherit pkgs; })
    ];

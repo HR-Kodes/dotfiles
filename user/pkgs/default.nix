@@ -5,6 +5,7 @@
     ./neovim
     ./mako/mako.nix
     ./mpd/mpd.nix
+    ./fastfetch
     # ./dunst
     ];
   }

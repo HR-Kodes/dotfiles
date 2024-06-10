@@ -29,8 +29,8 @@
 
   # Keymap in X11.
   services.xserver = {
-    layout = "us";
-    xkbVariant = "";
+    xkb.layout = "us";
+    xkb.variant = "";
   };
 
 
@@ -41,6 +41,7 @@
     XDG_SESSION_DESKTOP = if (userSettings.wm == "hyprland") then "Hyprland" else "x11";
     GDK_BACKEND = userSettings.wmType;
     CLUTTER_BACKEND = userSettings.wmType;
+    NIXPKGS_ALLOW_INSECURE = "1";
    };
 
   # Defining user account. Set a password with ‘passwd’.
@@ -56,7 +57,7 @@
 
   # Packages installed in system profile.
   environment.systemPackages = with pkgs; [
-    wget neofetch mako lsof
+    fastfetch wget mako lsof git
   ];
 
 

@@ -13,7 +13,7 @@
   programs.zsh.interactiveShellInit = ''eval "$(direnv hook zsh"'';
   programs.fish.interactiveShellInit = ''
     set fish_greeting # Disable greeting
-    ${pkgs.neofetch}/bin/neofetch
+    ${pkgs.fastfetch}/bin/fastfetch
     eval "$(direnv hook fish)"
    '';
 
