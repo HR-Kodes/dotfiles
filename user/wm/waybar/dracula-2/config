@@ -23,7 +23,8 @@
     "group/bluetooth",
     "group/networks",
     "group/clocks",
-    "custom/power"
+    "custom/power",
+    "custom/ml4w-welcome"
    ],
 
  // Modules Configuration.
@@ -122,7 +123,8 @@
 
 "mpd": {
 	// "format": "{stateIcon} {consumeIcon}{randomIcon}{repeatIcon}{singleIcon}{artist} - {album} - {title} ({elapsedTime:%M:%S}/{totalTime:%M:%S}) ",
-	"format": "{stateIcon} {consumeIcon}{randomIcon}{repeatIcon}{singleIcon} {artist} - {title} ",
+	// "format": "{stateIcon} {consumeIcon}{randomIcon}{repeatIcon}{singleIcon} {artist} - {title} ",
+	"format": "{stateIcon} {consumeIcon}{randomIcon}{repeatIcon}{singleIcon} {title} ",
 	"format-disconnected": "Disconnected ",
 	"format-stopped": "{consumeIcon}{randomIcon}{repeatIcon}{singleIcon}Stopped ",
 	"interval": 2,
@@ -413,8 +415,11 @@
 
 "custom/power": {
  "format": "<span color=\"#000\"></span>",
- "tooltip": "Logout",
- "on-click": "wlogout"
+ // "tooltip": "Logout",
+ // "tooltip": "Power Menu",
+ // "on-click": "wlogout"
+ "on-click": "~/.dotfiles/user/pkgs/eww/sidebar/launch.sh",
+ "tooltip": "Sidebar Menu"
 },
 
 
