@@ -43,39 +43,39 @@
 )
 
 (defwidget close [] 
-    (box :class "winbox"
-        (button :tooltip "Close" :style "background-image: url('../assets/window-close-symbolic.svg');" :class "closeicon" :valign "center" :halign "center" :onclick "../scripts/eww.sh &")
+    (button :class "winbox" :onclick "../scripts/eww.sh &"
+        (box :tooltip "Close" :style "background-image: url('../assets/window-close-symbolic.svg');" :class "closeicon" :valign "center" :halign "center")
     )
 )
 
 ;; powermenus
-(defwidget logout [] 
-    (box :class "winbox"
-        (button :tooltip "Logout" :style "background-image: url('../assets/application-exit-symbolic-rtl.svg');" :class "powericons" :valign "center" :halign "center" :onclick "../../../../scripts/power.sh exit &")
+(defwidget logout []
+    (button :class "winbox"  :onclick "../../../../scripts/power.sh exit &"
+        (box :tooltip "Logout" :style "background-image: url('../assets/application-exit-symbolic-rtl.svg');" :class "powericons" :valign "center" :halign "center")
     )
 )
 
 (defwidget suspend [] 
-    (box :class "winbox"
-        (button :tooltip "Suspend" :style "background-image: url('../assets/media-playback-pause-symbolic.svg');" :class "powericons" :valign "center" :halign "center" :onclick "../../../../scripts/power.sh suspend &")
+    (button :class "winbox" :onclick "../../../../scripts/power.sh suspend &"
+        (box :tooltip "Suspend" :style "background-image: url('../assets/media-playback-pause-symbolic.svg');" :class "powericons" :valign "center" :halign "center")
     )
 )
 
 (defwidget lock [] 
-    (box :class "winbox"
-        (button :tooltip "Lock" :style "background-image: url('../assets/system-lock-screen-symbolic.svg');" :class "powericons" :valign "center" :halign "center" :onclick "../../../../scripts/power.sh lock &")
+    (button :class "winbox" :onclick "../../../../scripts/power.sh lock &"
+        (box :tooltip "Lock" :style "background-image: url('../assets/system-lock-screen-symbolic.svg');" :class "powericons" :valign "center" :halign "center")
     )
 )
 
 (defwidget reboot [] 
-    (box :class "winbox"
-        (button :tooltip "Reboot" :style "background-image: url('../assets/system-reboot-symbolic.svg');" :class "powericons" :valign "center" :halign "center" :onclick "../../../../scripts/power.sh reboot &")
+    (button :class "winbox" :onclick "../../../../scripts/power.sh reboot &"
+        (box :tooltip "Reboot" :style "background-image: url('../assets/system-reboot-symbolic.svg');" :class "powericons" :valign "center" :halign "center")
     )
 )
 
 (defwidget shutdown [] 
-    (box :class "winbox"
-        (button :tooltip "Shutdown" :style "background-image: url('../assets/system-shutdown-symbolic.svg');" :class "powericons" :valign "center" :halign "center" :onclick "../../../../scripts/power.sh shutdown &")
+    (button :class "winbox" :onclick "../../../../scripts/power.sh shutdown &"
+        (box :tooltip "Shutdown" :style "background-image: url('../assets/system-shutdown-symbolic.svg');" :class "powericons" :valign "center" :halign "center")
     )
 )
 

@@ -17,17 +17,16 @@
 
   home.packages = with pkgs; [
     # Add home packages to install for user.
-    foot vivaldi insomnia
+    foot insomnia brave stremio gimp
     libnotify htop unzip xarchiver swww lz4
     grim slurp swappy viewnior
     mpv wl-clipboard wf-recorder cliphist
     brightnessctl ffmpeg
     youtube-music qbittorrent vlc telegram-desktop
-    gimp stremio brave
 
     eww python3
 
-    hyprlock imagemagick
+    hyprlock hyprpicker imagemagick
 
     (import ../../user/bin/wallsetter.nix { inherit pkgs; })
    ];
@@ -36,18 +35,17 @@
   home.file = {
     ".config/hypr/hyprland.conf".source = ../../user/wm/hyprland/hyprland.conf;
     ".config/hypr/hyprlock.conf".source = ../../user/wm/hyprland/hyprlock.conf;
+
     ".config/waybar" = {
       source = ../../user/wm/waybar/dracula-2;
       recursive = true;
     };
+
     ".config/foot/foot.ini".source = ../../user/apps/foot/foot.ini;
+
     "Pictures/Wallpapers" = {
       source = ../../user/theme/wallpaper;
       recursive = true;
-    };
-    ".wlogout-icons" = {
-       source = ../../user/wm/wlogout/icons;
-       recursive = true;
     };
 
     "Documents/programming/.envrc".source = ../../user/dev/direnv/dotenvrc;

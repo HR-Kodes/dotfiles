@@ -5,37 +5,35 @@
 }
 
 .winbox {
-	background-color: #242424;
+	background-color: #20262C;
 	opacity: 0.85;
-	border: 1px solid #444444;
+	// border: 1px solid #444444;
+	border: 1px solid #353F4A;
 	border-radius: 12px;
 	box-shadow: 0 0 4px 2px #000000;
 	margin: 10px;
 }
+.winbox:hover {
+    background-color: #353F4A;
+  }
 
 .res_box {
-	background-color: #242424;
+	background-color: #20262C;
 	border-radius: 12px;
 	padding: 14px 18px 14px 18px;
 }
 
 .res_circle {
-	background-color: #FFFFFF;
+	// background-color: #FFFFFF;
+	background-color: #353F4A;
 	border: 0px solid #161616;
 	color:#FFFFFF;
 	border-radius: 100%;
 	padding: 0px;
 }
 
-.ml4w_icon {
-    background-repeat: no-repeat;
-	background-size: 48px;
-	min-height: 48px;
-	min-width: 48px;
-}
-
 .res_circle_small {
-	background-color: #242424;
+	background-color: #2A323B;
 	border: 0px solid #161616;
 	border-radius: 100%;
 	padding: 40px;
@@ -52,15 +50,15 @@
 }
 
 .res_cpu {
-	color: #19cddb;
+	color: #75DBE1;
 }
 
 .res_mem {
-	color: #a5deb7;
+	color: #74DD91;
 }
 
 .res_disk {
-	color: #cfb3ff;
+	color: #B4A1DB;
 }
 
 .powericons {
@@ -76,3 +74,4 @@
 	min-height: 16px;
 	min-width: 16px;
 }
+

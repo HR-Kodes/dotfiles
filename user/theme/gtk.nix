@@ -13,6 +13,13 @@
   #     };
   #  };
   # };
+    
+    home.pointerCursor = {
+      gtk.enable = true;
+      package = pkgs.gnome.adwaita-icon-theme;
+      name = "Adwaita";
+      size = 16;
+      };
 
   gtk = {
     enable = true;
@@ -68,6 +75,7 @@
       # name = "Qogir-cursors";
       # package = pkgs.qogir-icon-theme;
     };
+
 
     gtk3.extraConfig = {
       Settings = ''
