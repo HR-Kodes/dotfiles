@@ -39,31 +39,31 @@ window#waybar {
 }
 
 
-.modules-left > :nth-child(3) > :nth-child(1) {
+#mpd > :nth-child(1) {
     margin: 0.15rem;
 }
-.modules-left > :nth-child(3) > :nth-child(1) {
+#mpd > :nth-child(1) {
     font-size: 1rem;
     color: #F1FCF9;
     background-color: #353F4A;
     padding: 0.25rem;
     border-radius: 1rem;
 }
-.modules-left > :nth-child(3) > :nth-child(1) > :nth-child(1) {
+#mpd > :nth-child(1) > :nth-child(1) {
     font-size: 1rem;
     color: #F1FCF9;
     padding: 0.25rem;
     /* margin-left: 0.5rem; */
     /* margin-right: 0.5rem; */
 }
-.modules-left > :nth-child(3) > :nth-child(1) > :nth-child(2) {
+#mpd > :nth-child(1) > :nth-child(2) {
     font-size: 1rem;
     color: #F1FCF9;
     padding: 0.25rem;
     /* margin-left: 0.5rem; */
     /* margin-right: 0.5rem; */
 }
-.modules-left > :nth-child(3) > :nth-child(1) > :nth-child(3) {
+#mpd > :nth-child(1) > :nth-child(3) {
     font-size: 1rem;
     color: #F1FCF9;
     padding: 0.5rem;
@@ -76,11 +76,10 @@ window#waybar {
 
 }
 
-
-.modules-center > :nth-child(1) {
+#downbits {
     margin: 0.15rem;
 }
-.modules-center > :nth-child(1) > :nth-child(1) {
+#downbits > :nth-child(1) {
     font-size: 1rem;
     color: #F1FCF9;
     background-color: #353F4A;
@@ -88,7 +87,7 @@ window#waybar {
     border-top-left-radius: 1rem;
     border-bottom-left-radius: 1rem;
 }
-.modules-center > :nth-child(1) > :nth-child(2) {
+#downbits > :nth-child(2) {
     font-size: 0.9rem;
     color: #F1FCF9;
     padding: 0rem;
@@ -97,10 +96,11 @@ window#waybar {
     border-bottom-right-radius: 1rem;
 }
 
-.modules-center > :nth-child(3) {
+
+#upbits {
     margin: 0.15rem;
 }
-.modules-center > :nth-child(3) > :nth-child(1) {
+#upbits > :nth-child(1) {
     font-size: 1rem;
     color: #F1FCF9;
     background-color: #353F4A;
@@ -108,7 +108,7 @@ window#waybar {
     border-top-left-radius: 1rem;
     border-bottom-left-radius: 1rem;
 }
-.modules-center > :nth-child(3) > :nth-child(2) {
+#upbits > :nth-child(2) {
     font-size: 0.9rem;
     color: #F1FCF9;
     padding: 0rem;
@@ -131,10 +131,10 @@ window#waybar {
 #network {
 }
 
-.modules-right > :nth-child(1) {
+#pulseaudios {
     margin: 0.15rem;
 }
-.modules-right > :nth-child(1) > :nth-child(1) {
+#pulseaudios > :nth-child(1) {
     font-size: 1rem;
     color: #F1FCF9;
     background-color: #353F4A;
@@ -142,7 +142,7 @@ window#waybar {
     border-top-left-radius: 1rem;
     border-bottom-left-radius: 1rem;
 }
-.modules-right > :nth-child(1) > :nth-child(2) {
+#pulseaudios > :nth-child(2) {
     font-size: 0.9rem;
     color: #F1FCF9;
     padding: 0rem;
@@ -152,10 +152,10 @@ window#waybar {
 }
 
 
-.modules-right > :nth-child(2) {
+#backlights {
     margin: 0.15rem;    
 }
-.modules-right > :nth-child(2) > :nth-child(1) {
+#backlights > :nth-child(1) {
     font-size: 1rem;
     color: #F1FCF9;
     padding: 0rem;
@@ -163,7 +163,7 @@ window#waybar {
     border-top-left-radius: 1rem;
     border-bottom-left-radius: 1rem;
 }
-.modules-right > :nth-child(2) > :nth-child(2) {
+#backlights > :nth-child(2) {
     font-size: 0.9rem;
     color: #F1FCF9;
     padding: 0rem;
@@ -173,10 +173,10 @@ window#waybar {
 }
 
 
-.modules-right > :nth-child(3) {
+#batteries {
     margin: 0.15rem;    
 }
-.modules-right > :nth-child(3) > :nth-child(1) {
+#batteries > :nth-child(1) {
     font-size: 1rem;
     color: #F1FCF9;
     padding: 0rem;
@@ -184,7 +184,7 @@ window#waybar {
     border-top-left-radius: 1rem;
     border-bottom-left-radius: 1rem;
 }
-.modules-right > :nth-child(3) > :nth-child(2) {
+#batteries > :nth-child(2) {
     font-size: 0.9rem;
     color: #F1FCF9;
     padding: 0rem;
@@ -194,10 +194,10 @@ window#waybar {
 }
 
 
-.modules-right > :nth-child(4) {
+#bluetooth {
     margin: 0.15rem;    
 }
-.modules-right > :nth-child(4) > :nth-child(1) {
+#bluetooth > :nth-child(1) {
     font-size: 1rem;
     color: #F1FCF9;
     padding: 0rem;
@@ -205,7 +205,7 @@ window#waybar {
     border-top-left-radius: 1rem;
     border-bottom-left-radius: 1rem;
 }
-.modules-right > :nth-child(4) > :nth-child(2) {
+#bluetooth > :nth-child(2) {
     font-size: 0.9rem;
     color: #F1FCF9;
     padding: 0rem;
@@ -215,10 +215,10 @@ window#waybar {
 }
 
 
-.modules-right > :nth-child(5) {
+#networks {
     margin: 0.15rem;    
 }
-.modules-right > :nth-child(5) > :nth-child(1) {
+#networks > :nth-child(1) {
     font-size: 1rem;
     color: #F1FCF9;
     padding: 0rem;
@@ -226,7 +226,7 @@ window#waybar {
     border-top-left-radius: 1rem;
     border-bottom-left-radius: 1rem;
 }
-.modules-right > :nth-child(5) > :nth-child(2) {
+#networks > :nth-child(2) {
     font-size: 0.9rem;
     color: #F1FCF9;
     padding: 0rem;
@@ -235,10 +235,10 @@ window#waybar {
     border-bottom-right-radius: 1rem;
 }
 
-.modules-right > :nth-child(6) {
+#clocks {
     margin: 0.15rem;    
 }
-.modules-right > :nth-child(6) > :nth-child(1) {
+#clocks > :nth-child(1) {
     font-size: 1rem;
     color: #F1FCF9;
     padding: 0rem;
@@ -246,7 +246,7 @@ window#waybar {
     border-top-left-radius: 1rem;
     border-bottom-left-radius: 1rem;
 }
-.modules-right > :nth-child(6) > :nth-child(2) {
+#clocks > :nth-child(2) {
     font-size: 0.9rem;
     color: #F1FCF9;
     padding: 0rem;

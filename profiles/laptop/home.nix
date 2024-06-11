@@ -1,4 +1,4 @@
-{ pkgs, config, lib, ... }:
+{ pkgs, config, lib, username, ... }:
 
 {
   programs.home-manager.enable = true;
@@ -18,14 +18,16 @@
   home.packages = with pkgs; [
     # Add home packages to install for user.
     foot vivaldi insomnia
-    libnotify htop unzip xarchiver swww
+    libnotify htop unzip xarchiver swww lz4
     grim slurp swappy viewnior
     mpv wl-clipboard wf-recorder cliphist
     brightnessctl ffmpeg
     youtube-music qbittorrent vlc telegram-desktop
     gimp stremio brave
 
-    eww-wayland python3
+    eww python3
+
+    hyprlock imagemagick
 
     (import ../../user/bin/wallsetter.nix { inherit pkgs; })
    ];
@@ -33,6 +35,7 @@
 
   home.file = {
     ".config/hypr/hyprland.conf".source = ../../user/wm/hyprland/hyprland.conf;
+    ".config/hypr/hyprlock.conf".source = ../../user/wm/hyprland/hyprlock.conf;
     ".config/waybar" = {
       source = ../../user/wm/waybar/dracula-2;
       recursive = true;
