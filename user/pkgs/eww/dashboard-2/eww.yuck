@@ -1,5 +1,7 @@
 ;; ** Variables ***********************************************************************
 
+(defvar BG_WP "images/blurred_wallpaper.png")
+
 ;; Profile vars
 (defvar IMAGE "images/profile.jpg")
 (defvar NAME "H R K")
@@ -51,7 +53,8 @@
 
 ;; background
 (defwidget bg [] 
-	(box :class "bg")
+	;;(box :class "bg")
+	(box :style "background-image: url('${BG_WP}');" :class "backgroung-wallpaper")
 )
 
 ;; profile
@@ -376,6 +379,6 @@
 
 ;; folders
 (defwindow folders :stacking "fg" :focusable "false" :screen 1 
-	    :geometry (geometry :x 1075 :y 330 :width 250 :height 360)
+	    :geometry (geometry :x 1075 :y 330 :width 255 :height 360)
 	(folders)
 )

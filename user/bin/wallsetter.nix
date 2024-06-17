@@ -26,11 +26,13 @@ pkgs.writeShellScriptBin "wallsetter" ''
     
     square="$HOME/.cache/square_wallpaper.png"
     blurred="$HOME/.cache/blurred_wallpaper.png"
+    blurred2="$HOME/.config/eww/dashboard-2/images/blurred_wallpaper.png"
     blur="50x30"
     used_wallpaper="$WALLPAPER"
 
     magick $used_wallpaper -resize 75% $blurred
     magick $blurred -blur $blur $blurred
+    cp ~/.cache/blurred_wallpaper.png ~/.config/eww/dashboard-2/images/blurred_wallpaper.png
 
     magick $WALLPAPER -gravity Center -extent 1:1 $square
   fi
