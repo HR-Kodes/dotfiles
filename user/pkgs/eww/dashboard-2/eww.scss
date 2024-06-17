@@ -291,12 +291,111 @@ font-size: 32px;
 	margin: 0px 5px 0px 5px;
 }
 
-.app_fox {}
-.app_telegram {}
-.app_discord {}
-.app_terminal {}
-.app_files {}
-.app_geany {}
-.app_code {}
-.app_gimp {}
-.app_vbox {}
+// .app_fox {}
+// .app_telegram {}
+// .app_discord {}
+// .app_terminal {}
+// .app_files {}
+// .app_geany {}
+// .app_code {}
+// .app_gimp {}
+// .app_vbox {}
+
+
+/** Power buttons ***************************************/
+.btn_logout, .btn_sleep, .btn_reboot, .btn_poweroff {
+	font-size : 50px;
+	font-weight : bold;
+}
+
+.btn_logout {
+	color: #BF616A;
+}
+.btn_sleep {
+	color: #A3BE8C;
+}
+.btn_reboot {
+	color: #EBCB8B;
+}
+.btn_poweroff {
+	color: #88C0D0;
+}
+
+
+/** Home folders ***************************************/
+.hddbox {
+	background-color: #3A404C;
+	border-radius: 10px;
+	margin : 15px;
+}
+.hddicon {
+	color: #81A1C1;
+	font-family: Iosevka Nerd Font;
+	font-size : 60px;
+	font-weight : normal;
+	margin : 25px 20px 25px 40px;
+}
+.hdd_label {
+	color: #E5E9F0;
+	font-size : 25px;
+	font-weight : bold;
+	margin : 0px 0px 0px 15px;
+}
+.fs_sep {
+	color: #2E3440;
+	font-size : 20px;
+	font-weight : bold;
+}
+
+.iconfolder1, .iconfolder2, .iconfolder3, .iconfolder4, .iconfolder5, .iconfolder6  {
+	font-family: Iosevka Nerd Font;
+	font-size : 26px;
+	font-weight : normal;
+	margin : 0px 0px 0px 40px;
+}
+.iconfolder1 {
+	color: #BF616A;
+	// margin-top: 20px;
+}
+.iconfolder2 {
+	color: #A3BE8C;
+}
+.iconfolder3 {
+	color: #EBCB8B;
+}
+.iconfolder4 {
+	color: #81A1C1;
+}
+.iconfolder5 {
+	color: #B48EAD;
+}
+.iconfolder6 {
+	color: #88C0D0;
+}
+
+.label_folder1, .label_folder2, .label_folder3, .label_folder4, .label_folder5, .label_folder6  {
+	font-size : 22px;
+	font-weight : normal;
+	margin : 0px 0px 0px 30px;
+}
+.label_folder1 {
+	color: #BF616A;
+	// margin-top: 20px;
+}
+.label_folder2 {
+	color: #A3BE8C;
+}
+.label_folder3 {
+	color: #EBCB8B;
+}
+.label_folder4 {
+	color: #81A1C1;
+}
+.label_folder5 {
+	color: #B48EAD;
+}
+.label_folder6 {
+	color: #88C0D0;
+}
+
+/** EOF *************************************************/

@@ -42,6 +42,9 @@
 ;; Apps vars
 (defpoll MAILS :interval "5m" `scripts/mails`)
 
+;; Files vars
+(defpoll FREE :interval "5s" `df -h / | awk '{print $4}' | tail -n 1 | sed 's/G/GB/'`)
+
 
 ;; ** Widgets *************************************************************************
 
@@ -209,6 +212,61 @@
 	)
 )
 
+;; power buttons
+(defwidget logout [] 
+	(box :class "genwin" :vexpand "false" :hexpand "false" 
+		(button :class "btn_logout" :onclick "openbox --exit" " ")
+	)
+)
+(defwidget sleep [] 
+	(box :class "genwin" :vexpand "false" :hexpand "false" 
+		(button :class "btn_sleep" :onclick "systemctl suspend" " ")
+	)
+)
+(defwidget reboot [] 
+	(box :class "genwin" :vexpand "false" :hexpand "false" 
+		(button :class "btn_reboot" :onclick "systemctl reboot" " ")
+	)
+)
+(defwidget poweroff [] 
+	(box :class "genwin" :vexpand "false" :hexpand "false" 
+		(button :class "btn_poweroff" :onclick "systemctl poweroff" "⏻ ")
+	)
+)
+
+;; folders
+(defwidget folders [] 
+	(box :class "genwin" :orientation "v" :space-evenly "false" :vexpand "false" :hexpand "false" 
+		(box :class "hddbox" :orientation "h" :space-evenly "false" :vexpand "false" :hexpand "false" 
+			(box :space-evenly "false" :vexpand "false" :hexpand "false"
+				(button :class "hddicon" :onclick "scripts/open_apps --fm" "󰋊")
+				(label :class "fs_sep" :text "|")
+			)
+			(box :space-evenly "false" :vexpand "false" :hexpand "false" 
+				(label :class "hdd_label" :wrap "true" :limit-width 25 :text FREE)
+			)
+		)
+		(box :orientation "h" :space-evenly "false" :vexpand "false" :hexpand "false" 
+			(button :class "iconfolder1" :onclick "scripts/open_folders --docs" "")
+			(button :class "label_folder1" :onclick "scripts/open_folders --docs" "Documents"))
+		(box :orientation "h" :space-evenly "false" :vexpand "false" :hexpand "false" 
+			(button :class "iconfolder2" :onclick "scripts/open_folders --dl" "󰉍")
+			(button :class "label_folder2" :onclick "scripts/open_folders --dl" "Downloads"))
+		(box :orientation "h" :space-evenly "false" :vexpand "false" :hexpand "false" 
+			(button :class "iconfolder3" :onclick "scripts/open_folders --music" "󱍙")
+			(button :class "label_folder3" :onclick "scripts/open_folders --music" "Music"))
+		(box :orientation "h" :space-evenly "false" :vexpand "false" :hexpand "false" 
+			(button :class "iconfolder4" :onclick "scripts/open_folders --pics" "󰉏")
+			(button :class "label_folder4" :onclick "scripts/open_folders --pics" "Pictures"))
+		(box :orientation "h" :space-evenly "false" :vexpand "false" :hexpand "false" 
+			(button :class "iconfolder5" :onclick "scripts/open_folders --cfg" "")
+			(button :class "label_folder5" :onclick "scripts/open_folders --cfg" "~/.config"))
+		(box :orientation "h" :space-evenly "false" :vexpand "false" :hexpand "false" 
+			(button :class "iconfolder6" :onclick "scripts/open_folders --local" "󱪨")
+			(button :class "label_folder6" :onclick "scripts/open_folders --local" "~/.local")
+		)
+	)
+)
 
 
 ;; ** Windows *************************************************************************
@@ -290,4 +348,34 @@
 (defwindow mail :stacking "fg" :focusable "false" :screen 1 
 	    :geometry (geometry :x 835 :y 580 :width 225 :height 110)
 	(mail)
+)
+
+;; logout
+(defwindow logout :stacking "fg" :focusable "false" :screen 1 
+	    :geometry (geometry :x 1070 :y 50 :width 125 :height 125)
+	(logout)
+)
+
+;; sleep
+(defwindow sleep :stacking "fg" :focusable "false" :screen 1 
+	    :geometry (geometry :x 1205 :y 50 :width 125 :height 125)
+	(sleep)
+)
+
+;; reboot
+(defwindow reboot :stacking "fg" :focusable "false" :screen 1 
+	    :geometry (geometry :x 1070 :y 190 :width 125 :height 125)
+	(reboot)
+)
+
+;; poweroff
+(defwindow poweroff :stacking "fg" :focusable "false" :screen 1 
+	    :geometry (geometry :x 1205 :y 190 :width 125 :height 125)
+	(poweroff)
+)
+
+;; folders
+(defwindow folders :stacking "fg" :focusable "false" :screen 1 
+	    :geometry (geometry :x 1075 :y 330 :width 250 :height 360)
+	(folders)
 )
