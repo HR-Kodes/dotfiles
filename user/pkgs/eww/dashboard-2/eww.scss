@@ -5,6 +5,7 @@
 	font-family: Iosevka;
 }
 
+
 /** Background ***************************************/
 .bg {
 	background-image: url("/home/koushikhr/.cache/blurred_wallpaper.png");
@@ -12,11 +13,13 @@
 	opacity: 1;
 }
 
+
 /** Generic window ***********************************/
 .genwin {
 	background-color: #2E3440;
 	border-radius: 16px;
 }
+
 
 /** Profile ******************************************/
 .face {
@@ -39,6 +42,7 @@
 	font-weight : bold;
 	margin : -15px 0px 0px 0px;
 }
+
 
 /** System ********************************************/
 .iconcpu, .iconmem, .iconbright, .iconbat {
@@ -87,14 +91,15 @@ font-size: 32px;
 	background-color: #88C0D0;
 }
 
+
 /** Clock ********************************************/
 .time_hour, .time_min {
 	color: #81A1C1;
-	font-size : 44px;
+	font-size : 40px;
 	font-weight : bold;
 }
 .time_hour {
-	margin : 8px 0px 0px 10px;
+	margin : 8px 0px 0px 20px;
 }
 .time_min {
 	margin : 0px 0px 8px -50px;
@@ -102,17 +107,18 @@ font-size: 32px;
 
 .time_mer {
 	color: #A3BE8C;
-	font-size : 28px;
+	font-size : 24px;
 	font-weight : bold;
-	margin : 16px 10px 0px 0px;
+	margin : 26px 20px 0px 0px;
 }
 
 .time_day {
 	color: #EBCB8B;
-	font-size : 28px;
+	font-size : 24px;
 	font-weight : normal;
-	margin : 0px 10px 16px -20px;
+	margin : 0px 20px 26px -20px;
 }
+
 
 /** Uptime ********************************************/
 .icontimer {
@@ -129,6 +135,168 @@ font-size: 32px;
 
 .upmin {
 	color: #E5E9F0;
-	font-size : 24px;
+	font-size : 22px;
 	font-weight : bold;
 }
+
+
+/** Music ***************************************/
+.album_art {
+	background-size: 200px;
+	min-height: 200px;
+	min-width: 200px;
+	margin: 20px;
+	border-radius: 14px;
+	background-repeat: no-repeat;
+}
+
+.song {
+	color: #8FBCBB;
+	font-size : 20px;
+	font-weight : bold;
+	margin : 30px 0px 0px 0px;
+}
+
+.artist {
+	color: #EBCB8B;
+	font-size : 12px;
+	font-weight : normal;
+	margin : 0px 0px 15px 0px;
+}
+
+.btn_prev, .btn_play, .btn_next {
+	font-family: Iosevka Nerd Font;
+}
+.btn_prev {
+	color: #EBCB8B;
+	font-size : 26px;
+	font-weight : normal;
+}
+.btn_play {
+	color: #A3BE8C;
+	font-size : 36px;
+	font-weight : bold;
+}
+.btn_next {
+	color: #EBCB8B;
+	font-size : 26px;
+	font-weight : normal;
+}
+
+.music_bar scale trough highlight {
+	all: unset;
+	background-color: #B48EAD;
+	border-radius: 8px;
+}
+.music_bar scale trough {
+	all: unset;
+	background-color: #3A404C;
+	border-radius: 8px;
+	min-height: 15px;
+	min-width: 200px;
+	margin : 10px 0px 0px 0px;
+}
+
+
+/** Links ***************************************/
+.iconweb, .iconmail {
+	color: #FFFFFF;
+	font-size : 45px;
+	font-weight : normal;
+}
+.github-icon {
+	font-size: 55px;
+	margin-left: 25px;
+}
+.iconmail {
+	color: #DF584E;
+}
+.github {
+	background-color: #24292E;
+	border-radius: 16px;
+}
+.reddit {
+	background-color: #E46231;
+	border-radius: 16px;
+}
+.twitter {
+	background-color: #61AAD6;
+	border-radius: 16px;
+}
+.youtube {
+	background-color: #DF584E;
+	border-radius: 16px;
+}
+.mail {
+	background-color: #FFFFFF;
+	border-radius: 16px;
+}
+
+.mailbox {
+	background-color: #E5E5E5;
+	border-radius: 10px;
+	margin: 36px 0px 36px 0px;
+}
+.label_mails {
+	color: #404040;
+	font-size : 30px;
+	font-weight : bold;
+	margin: 0px 12px 0px 12px;
+}
+
+/** Weather ***************************************/
+.iconweather {
+	// font-family: Iosevka Nerd Font;
+	font-size : 80px;
+	font-weight : normal;
+	margin : 15px 0px 0px 30px;
+}
+
+.label_temp {
+	color : #A6D1DD;
+	font-size : 50px;
+	font-weight : bold;
+	margin : 15px 30px 0px 0px;
+}
+
+.label_stat {
+	color : #BF616A;
+	font-size : 34px;
+	font-weight : bold;
+}
+
+.label_quote {
+	color : #E5E5E5;
+	font-size : 16px;
+	font-weight : normal;
+}
+
+/** Applications ***************************************/
+.appbox {
+	margin : 20px 25px 0px 25px;
+}
+.firstbox {
+	margin-top: 25px;
+}
+.lastbox {
+	margin-bottom: 25px;
+}
+
+.app_fox, .app_telegram, .app_discord, .app_terminal,
+.app_files, .app_geany, .app_code, .app_gimp, .app_vbox {
+    background-repeat: no-repeat;
+	background-size: 50px;
+	min-height: 50px;
+	min-width: 50px;
+	margin: 0px 5px 0px 5px;
+}
+
+.app_fox {}
+.app_telegram {}
+.app_discord {}
+.app_terminal {}
+.app_files {}
+.app_geany {}
+.app_code {}
+.app_gimp {}
+.app_vbox {}

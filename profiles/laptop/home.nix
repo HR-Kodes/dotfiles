@@ -23,8 +23,9 @@
     mpv wl-clipboard wf-recorder cliphist
     brightnessctl ffmpeg
     youtube-music qbittorrent vlc telegram-desktop
+    discord
 
-    eww python3
+    eww python3 jq python312Packages.imaplib2
 
     hyprlock hyprpicker imagemagick
 

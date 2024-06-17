@@ -8,9 +8,9 @@ MUSIC_DIR="$HOME/Music"
 ## Get status
 get_status() {
 	if [[ $STATUS == *"[playing]"* ]]; then
-		echo ""
+		echo " "
 	else
-		echo "喇"
+		echo " "
 	fi
 }
 
