@@ -36,6 +36,7 @@
     frame_color = "#ffffff"
     gap_size = 0
     separator_color = frame
+    .icon_path = "/usr/share/icons/gnome/16x16/status/:/usr/share/icons/gnome/16x16/devices/"
     sort = yes
     font = "Fira Sans Semibold" 9
     line_height = 1

@@ -1,14 +1,6 @@
 { config, pkgs, lib, ... }:
 
 {
-    home.packages = with pkgs; [
-      mpd ncmpcpp mpc-cli mpc_cli
-    ];
-
-# Perform 
-# $ mpc ls | mpc add
-# to add music to mpc
-
     home.file = {
         ".config/fastfetch/config.jsonc".text = ''
         //  Thanks to Bina

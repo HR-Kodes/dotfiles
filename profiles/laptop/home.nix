@@ -28,6 +28,8 @@
 
     hyprlock hyprpicker imagemagick
 
+    # google-chrome protonvpn-gui networkmanagerapplet
+
     (import ../../user/bin/wallsetter.nix { inherit pkgs; })
    ];
 

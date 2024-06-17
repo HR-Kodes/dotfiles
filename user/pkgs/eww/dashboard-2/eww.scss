@@ -1,0 +1,134 @@
+/** Global *******************************************/
+*{
+	all: unset;
+	font-family: feather;
+	font-family: Iosevka;
+}
+
+/** Background ***************************************/
+.bg {
+	background-image: url("/home/koushikhr/.cache/blurred_wallpaper.png");
+	background-color: #474D59;
+	opacity: 1;
+}
+
+/** Generic window ***********************************/
+.genwin {
+	background-color: #2E3440;
+	border-radius: 16px;
+}
+
+/** Profile ******************************************/
+.face {
+	background-size: 125px;
+	min-height: 125px;
+	min-width: 125px;
+	margin: 65px 0px 0px 0px;
+	border-radius: 100%;
+}
+
+.fullname {
+	color: #D46389;
+	font-size : 30px;
+	font-weight : bold;
+}
+
+.username {
+	color: #8FBCBB;
+	font-size : 22px;
+	font-weight : bold;
+	margin : -15px 0px 0px 0px;
+}
+
+/** System ********************************************/
+.iconcpu, .iconmem, .iconbright, .iconbat {
+	font-size : 26px;
+	font-weight : normal;
+}
+.iconbright {
+font-size: 32px;
+}
+.iconcpu {
+	color: #BF616A;
+}
+.iconmem {
+	color: #A3BE8C;
+}
+.iconbright {
+	color: #EBCB8B;
+}
+.iconbat {
+	color: #88C0D0;
+}
+
+.cpu_bar, .mem_bar, .bright_bar, .bat_bar, scale trough {
+	all: unset;
+	background-color: #3A404C;
+	border-radius: 16px;
+	min-height: 22px;
+	min-width: 150px;
+}
+
+.cpu_bar, .mem_bar, .bright_bar, .bat_bar, scale trough highlight {
+	all: unset;
+	border-radius: 16px;
+}
+
+.cpu_bar scale trough highlight {
+	background-color: #BF616A;
+}
+.mem_bar scale trough highlight {
+	background-color: #A3BE8C;
+}
+.bright_bar scale trough highlight {
+	background-color: #EBCB8B;
+}
+.bat_bar scale trough highlight {
+	background-color: #88C0D0;
+}
+
+/** Clock ********************************************/
+.time_hour, .time_min {
+	color: #81A1C1;
+	font-size : 44px;
+	font-weight : bold;
+}
+.time_hour {
+	margin : 8px 0px 0px 10px;
+}
+.time_min {
+	margin : 0px 0px 8px -50px;
+}
+
+.time_mer {
+	color: #A3BE8C;
+	font-size : 28px;
+	font-weight : bold;
+	margin : 16px 10px 0px 0px;
+}
+
+.time_day {
+	color: #EBCB8B;
+	font-size : 28px;
+	font-weight : normal;
+	margin : 0px 10px 16px -20px;
+}
+
+/** Uptime ********************************************/
+.icontimer {
+	color: #B48EAD;
+	font-size : 60px;
+	font-weight : normal;
+}
+
+.uphour {
+	color: #E5E9F0;
+	font-size : 30px;
+	font-weight : bold;
+}
+
+.upmin {
+	color: #E5E9F0;
+	font-size : 24px;
+	font-weight : bold;
+}

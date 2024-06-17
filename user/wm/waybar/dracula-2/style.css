@@ -38,9 +38,12 @@ window#waybar {
     margin: 0.3rem 0.65rem;
 }
 
+#mpd {
+  margin: 0.15rem;
+}
 
 #mpd > :nth-child(1) {
-    margin: 0.15rem;
+    /* margin: 0.15rem; */
 }
 #mpd > :nth-child(1) {
     font-size: 1rem;

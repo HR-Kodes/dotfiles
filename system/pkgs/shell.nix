@@ -9,11 +9,13 @@
     # initExtra = ''
     #   ${pkgs.neofetch}/bin/neofetch
     #  '';
+    
+    # ${pkgs.fastfetch}/bin/fastfetch
    };
   programs.zsh.interactiveShellInit = ''eval "$(direnv hook zsh"'';
   programs.fish.interactiveShellInit = ''
     set fish_greeting # Disable greeting
-    ${pkgs.fastfetch}/bin/fastfetch
+    ${pkgs.fastfetch}/bin/fastfetch --config examples/13
     eval "$(direnv hook fish)"
    '';
 

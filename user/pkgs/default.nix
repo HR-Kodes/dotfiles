@@ -10,11 +10,11 @@
     ];
 
   home.packages = with pkgs; [
-  dunst
+    # dunst
   ];
     home.file = {
 
-        ".config/dunst/dunstrc".source = ./dunst/dunstrc;
+        # ".config/dunst/dunstrc".source = ./dunst/dunstrc;
     };
 
   }

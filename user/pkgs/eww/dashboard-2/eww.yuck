@@ -1,0 +1,128 @@
+;; ** Variables ***********************************************************************
+
+;; Profile vars
+(defvar IMAGE "images/profile.jpg")
+(defvar NAME "H R K")
+(defpoll UNAME :interval "5m" `whoami`)
+
+;; System vars
+(defpoll HOST :interval "5s" `hostname`)
+(defpoll CPU_USAGE :interval "1s" `scripts/sys_info --cpu`)
+(defpoll MEM_USAGE :interval "1s" `scripts/sys_info --mem`)
+(defpoll BLIGHT :interval "1s" `scripts/sys_info --blight`)
+(defpoll BATTERY :interval "5s" `scripts/sys_info --bat`)
+
+;; Time vars
+(defpoll HOUR :interval "5s" `date +\"%I\"`)
+(defpoll MIN :interval "5s" `date +\"%M\"`)
+(defpoll MER :interval "5s" `date +\"%p\"`)
+(defpoll DAY :interval "5s" `date +\"%A\"`)
+
+;; Uptime vars
+;;(defpoll UPHOUR :interval "5s" `uptime -p | awk '{print $2 \" \" $3}' | sed 's/,//g'`)
+;;(defpoll UPMIN :interval "5s" `uptime -p | awk '{print $4 \" \" $5}'`)
+
+(defpoll UPHOUR :interval "5s" `uptime | awk '{split($3, a, ":"); {print a[1], "hours";}}'`)
+(defpoll UPMIN :interval "5s" `uptime | awk '{split($3, a, ":"); gsub(/,/, "", a[2]); print a[2], "minutes"}'`)
+
+
+;; ** Widgets *************************************************************************
+
+
+;; background
+(defwidget bg [] 
+	(box :class "bg")
+)
+
+;; profile
+(defwidget user [] 
+	(box :class "genwin" :orientation "v" :spacing 20 :space-evenly "false" :vexpand "false" :hexpand "false"
+		(box :style "background-image: url('${IMAGE}');" :class "face" :halign "center")
+		(label :class "fullname" :halign "center" :wrap "true" :limit-width 25 :text NAME)
+		(label :class "username" :halign "center" :wrap "true" :limit-width 25 :text UNAME)
+	)
+)
+
+;; system
+(defwidget system [] 
+	(box :class "genwin" :vexpand "false" :hexpand "false" 
+		(box :orientation "v" :spacing 20 :halign "center" :valign "center" :space-evenly "false" :vexpand "false" :hexpand "false" 
+			(box :class "cpu_bar" :orientation "h" :spacing 20 :space-evenly "false" :vexpand "false" :hexpand "false" 
+				(label :class "iconcpu" :text "")
+				(scale :min 0 :max 100 :value CPU_USAGE :active "false")
+			)
+			(box :class "mem_bar" :orientation "h" :spacing 20 :space-evenly "false" :vexpand "false" :hexpand "false" 
+				(label :class "iconmem" :text "")
+				(scale :min 0 :max 100 :value MEM_USAGE :active "false")
+			)
+			(box :class "bright_bar" :orientation "h" :spacing 20 :space-evenly "false" :vexpand "false" :hexpand "false" 
+				(label :class "iconbright" :text "󰖨")
+				(scale :min 0 :max 100 :value BLIGHT :active "false")
+			)
+			(box :class "bat_bar" :orientation "h" :spacing 20 :space-evenly "false" :vexpand "false" :hexpand "false" 
+				(label :class "iconbat" :text "")
+				(scale :min 0 :max 100 :value BATTERY :active "false")
+			)
+		)
+	)
+)
+
+;; clock
+(defwidget clock [] 
+	(box :class "genwin" :orientation "h" :spacing 25 :space-evenly false :vexpand "false" :hexpand "false" 
+		(box :orientation "h" :spacing 0
+			(label :class "time_hour" :valign "start" :wrap "true" :limit-width 25 :text HOUR)
+			(label :class "time_min" :valign "end" :wrap "true" :limit-width 25 :text MIN)
+		)
+		(box :orientation "v" :spacing 0 
+			(label :class "time_mer" :valign "start" :halign "end" :wrap "true" :limit-width 25 :text MER)
+			(label :class "time_day" :valign "end" :halign "end" :wrap "true" :limit-width 25 :text DAY)
+		)
+	)
+)
+
+;; uptime
+(defwidget uptime [] 
+	(box :class "genwin" 
+		(box :orientation "h" :halign "center" :spacing 35 :space-evenly "false" :vexpand "false" :hexpand "false" 
+			(label :class "icontimer" :valign "center" :text "󰔛")
+			(box :orientation "v" :valign "center" :spacing 0 :space-evenly "false" :vexpand "false" :hexpand "false" 
+				(label :class "uphour" :halign "start" :wrap "true" :limit-width 25 :text UPHOUR)
+				(label :class "upmin" :halign "start" :wrap "true" :limit-width 25 :text UPMIN)
+			)
+		)
+	)
+)
+
+
+;; ** Windows *************************************************************************
+
+;; background
+(defwindow background :stacking "fg" :focusable "false" :screen 1 
+	    :geometry (geometry :x 0 :y 0 :width "1366px" :height "768px")
+	(bg)
+)
+
+;; profile
+(defwindow profile :stacking "fg" :focusable "false" :screen 1 
+	    :geometry (geometry :x 50 :y 50 :width 250 :height 375)
+	(user)
+)
+
+;; system
+(defwindow system :stacking "fg" :focusable "false" :screen 1 
+	    :geometry (geometry :x 50 :y 440 :width 250 :height 250)
+	(system)
+)
+
+;; clock
+(defwindow clock :stacking "fg" :focusable "false" :screen 1 
+	    :geometry (geometry :x 315 :y 50 :width 275 :height 125)
+	(clock)
+)
+
+;; uptime
+(defwindow uptime :stacking "fg" :focusable "false" :screen 1 
+	    :geometry (geometry :x 315 :y 190 :width 275 :height 125)
+	(uptime)
+)

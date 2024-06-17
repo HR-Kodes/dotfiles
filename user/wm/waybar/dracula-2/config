@@ -75,7 +75,7 @@
    ]
 },
 "mpd#text": {
-  "format": "{artist} - {title}",
+  "format": "{artist:.12} - {title:.15}",
 	"format-disconnected": "Disconnected",
 	"format-stopped": "{consumeIcon}{randomIcon}{repeatIcon}{singleIcon}Stopped",
 	"interval": 2,

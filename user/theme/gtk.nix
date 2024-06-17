@@ -43,6 +43,9 @@
 
       name = "Everforest-Dark-B";
       package = pkgs.callPackage ../../packages/gtk/everforest-gtk-theme.nix { };
+
+      # name = "papirus-icon-theme";
+      # package = pkgs.papirus-icon-theme;
       
       # name = "Colorful-Dark-GTK";
       # package = pkgs.callPackage ../../packages/gtk/colorful-plasma-gtk-theme.nix { };
