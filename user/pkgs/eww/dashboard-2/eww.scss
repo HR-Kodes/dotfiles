@@ -17,12 +17,14 @@
 .backgroung-wallpaper {
 	/* min-width: 1366px;
 	min-height: 768px; */
+	opacity: 1;
 }
 
 
 /** Generic window ***********************************/
 .genwin {
-	background-color: #2E3440;
+	// background-color: #2E3440;
+	background-color: #20262C;
 	border-radius: 16px;
 }
 
@@ -330,7 +332,8 @@ font-size: 32px;
 
 /** Home folders ***************************************/
 .hddbox {
-	background-color: #3A404C;
+	// background-color: #3A404C;
+	background-color: #353F4A;
 	border-radius: 10px;
 	margin : 15px;
 }
