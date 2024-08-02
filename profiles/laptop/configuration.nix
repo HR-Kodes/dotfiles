@@ -6,7 +6,7 @@
 
 {
   imports = [
-    ./hardware-configuration.nix
+    /etc/nixos/hardware-configuration.nix
     ../../system/theme/fonts.nix
     ../../system/pkgs
     ../../system/apps
