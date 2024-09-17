@@ -1,0 +1,441 @@
+{
+  "layer": "top",
+  "margin-bottom": 0,
+  "margin-left": 0,
+  "margin-right": 0,
+  "spacing": 0,
+
+  // Modules Definition.
+  "modules-left": [
+      "custom/appmenu",
+      "group/quicklinks",
+      "group/mpd"
+    ],
+  "modules-center": [
+    "group/downbits",
+    "hyprland/workspaces",
+    "group/upbits"
+  ],
+  "modules-right": [
+    "group/pulseaudios",
+    "group/backlights",
+    "group/batteries",
+    "group/bluetooth",
+    "group/networks",
+    "group/clocks",
+    "custom/power",
+    "custom/ml4w-welcome"
+   ],
+
+ // Modules Configuration.
+ "custom/appmenu": {
+      "format": "<span color=\"#B4A1DB\"></span>",
+      "width": 20,
+      "height": 20,
+      "on-click": "rofi -show drun -show-icons",
+      "tooltip": false
+    },
+
+"group/quicklinks": {
+     "orientation": "horizontal",
+     "modules": [
+         "custom/terminal",
+         "custom/browser",
+         "custom/filemanager",
+         "custom/cliphist"
+      ]
+},
+"custom/terminal": {
+   "format": "",
+   "on-click": "foot",
+   "tooltip": false
+},
+ "custom/browser": {
+     "format": "",
+     "on-click": "vivaldi",
+     "tooltip": false
+ },
+ "custom/filemanager": {
+     "format": "",
+     "on-click": "thunar",
+     "tooltip": false
+ },
+ "custom/cliphist": {
+   "format": "",
+   "on-click": "sleep 0.1 && clipman pick --tool rofi -T'--prompt=clipboard-history -i'",
+   "tooltip": false
+},
+
+
+"group/mpd": {
+  "orientation": "horizontal",
+  "modules": [
+      "group/mpd-icons",
+      "mpd#text"
+   ]
+},
+"mpd#text": {
+  "format": "{artist} - {title}",
+	"format-disconnected": "Disconnected",
+	"format-stopped": "{consumeIcon}{randomIcon}{repeatIcon}{singleIcon}Stopped",
+	"interval": 2,
+	"tooltip-format": "MPD (connected) ({elapsedTime:%M:%S}/{totalTime:%M:%S})",
+	"tooltip-format-disconnected": "MPD (disconnected)"
+},
+
+"group/mpd-icons": {
+  "orientation": "horizontal",
+  "modules": [
+      "custom/mpd-prev",
+      "mpd#toggle",
+      "custom/mpd-next"
+   ]
+},
+
+"custom/mpd-prev": {
+  "format": " 󰒮 ",
+	"interval": 2,
+  "on-click": "mpc prev 2>/dev/null",
+  "tooltip": "Play Previous",
+	"tooltip-format": "MPD (connected) ({elapsedTime:%M:%S}/{totalTime:%M:%S})",
+	"tooltip-format-disconnected": "MPD (disconnected)"
+},
+"mpd#toggle": {
+  "format": " {stateIcon} ",
+	"interval": 2,
+  "on-click": "mpc toggle 2>/dev/null",
+	"tooltip-format": "({elapsedTime:%M:%S}/{totalTime:%M:%S})",
+	"tooltip-format-disconnected": "MPD (disconnected)",
+	"state-icons": {
+		"paused": "<span color=\"#E49186\">󰏥</span>",
+		"playing": "<span color=\"#74DD91\"></span>"
+	}
+},
+"custom/mpd-next": {
+  "format": " 󰒭 ",
+	"interval": 2,
+  "on-click": "mpc next 2>/dev/null",
+  "tooltip": "Play Next",
+	"tooltip-format": "MPD (connected) ({elapsedTime:%M:%S}/{totalTime:%M:%S})",
+	"tooltip-format-disconnected": "MPD (disconnected)"
+},
+
+
+"mpd": {
+	// "format": "{stateIcon} {consumeIcon}{randomIcon}{repeatIcon}{singleIcon}{artist} - {album} - {title} ({elapsedTime:%M:%S}/{totalTime:%M:%S}) ",
+	// "format": "{stateIcon} {consumeIcon}{randomIcon}{repeatIcon}{singleIcon} {artist} - {title} ",
+	"format": "{stateIcon} {consumeIcon}{randomIcon}{repeatIcon}{singleIcon} {title} ",
+	"format-disconnected": "Disconnected ",
+	"format-stopped": "{consumeIcon}{randomIcon}{repeatIcon}{singleIcon}Stopped ",
+	"interval": 2,
+  "on-click": "exec ~/.dotfiles/scripts/mpd_control.sh",
+	"consume-icons": {
+    "on": " " // Icon shows only when "consume" is on
+	},
+	"random-icons": {
+		"off": "<span color=\"#f53c3c\"></span> ", // Icon grayed out when "random" is off
+		"on": " "
+	},
+	"repeat-icons": {
+		"on": " "
+	},
+	"single-icons": {
+		"on": "1 "
+	},
+	"state-icons": {
+		"paused": "",
+		"playing": ""
+	},
+	"tooltip-format": "MPD (connected) ({elapsedTime:%M:%S}/{totalTime:%M:%S})",
+	"tooltip-format-disconnected": "MPD (disconnected)"
+},
+
+// "mpd": {
+//   "format": "{stateIcon} ",
+//   "format-disconnected": " ",
+//   "format-stopped": " ",
+//   "state-icons": {
+//     "paused": "",
+//     "playing": "",
+//     "stopped": ""
+//   },
+//   "on-click": "exec ~/.dotfiles/scripts/mpd_control.sh",
+//   "tooltip-format": "{artist}\n{album}\n{title}\n({elapsedTime:%M:%S}/{totalTime:%M:%S})",
+//   "tooltip-format-disconnected": "MPD (disconnected)",
+//   "on-click-right": "exec ~/bin/songinfo.sh"
+// },
+
+
+"group/downbits": {
+  "orientation": "horizontal",
+  "modules": [
+     "network#downbits-icon",
+     "network#downbits-text"
+  ]
+},
+"network#downbits-icon": {
+  "format": "<span color=\"#74DD91\">  </span>",
+  "format-wifi": "<span color=\"#74DD91\">  </span>",
+  "tooltip-format-wifi": "{essid}",
+  "format-ethernet": "<span color=\"#74DD91\">  </span>",
+  "tooltip-format-ethernet": "{ifname}: {ipaddr}/{cidr}",
+  "format-disconnected": "<span color=\"#74DD91\">  </span>",
+  "on-click": "footclient -T waybar_nmtui -e nmtui",
+  "interval": 2
+},
+"network#downbits-text": {
+  "format": "Disabled ",
+  "format-wifi": "{bandwidthDownBits:>} ",
+  "tooltip-format-wifi": "{essid}",
+  "format-ethernet": "{bandwidthDownBits:>} ",
+  "tooltip-format-ethernet": "{ifname}: {ipaddr}/{cidr}",
+  "format-disconnected": "Disconnected ",
+  "on-click": "footclient -T waybar_nmtui -e nmtui",
+  "interval": 2
+},
+
+"group/upbits": {
+  "orientation": "horizontal",
+  "modules": [
+     "network#upbits-icon",
+     "network#upbits-text"
+  ]
+},
+"network#upbits-icon": {
+  "format": "<span color=\"#9EE9EA\">  </span>",
+  "format-wifi": "<span color=\"#9EE9EA\">  </span>",
+  "tooltip-format-wifi": "{essid}",
+  "format-ethernet": "<span color=\"#9EE9EA\">  </span>",
+  "tooltip-format-ethernet": "{ifname}: {ipaddr}/{cidr}",
+  "format-disconnected": "<span color=\"#9EE9EA\">  </span>",
+  "on-click": "footclient -T waybar_nmtui -e nmtui",
+  "interval": 2
+},
+"network#upbits-text": {
+  "format": "Disabled ",
+  "format-wifi": "{bandwidthUpBits:>} ",
+  "tooltip-format-wifi": " {essid} ",
+  "format-ethernet": "{bandwidthUpBits:>} ",
+  "tooltip-format-ethernet": "{ifname}: {ipaddr}/{cidr}",
+  "format-disconnected": "Disconnected ",
+  "on-click": "footclient -T waybar_nmtui -e nmtui",
+  "interval": 2
+},
+
+ 
+ "wlr/taskbar": {
+       "format": "{icon}",
+       "icon-size": 18,
+       "tooltip-format": "{title}",
+       "on-click": "activate",
+       "on-click-middle": "close",
+       "ignore-list": [
+          "Alacritty"
+          // "foot"
+       ],
+       "app_ids-mapping": {
+           "firefoxdeveloperedition": "firefox-developer-edition",
+           "youtube-music": "youtube"
+       },
+       "rewrite": {
+           "Firefox Web Browser": "Firefox",
+           "Foot Server": "Terminal",
+           "youtube-music": "Music"
+       }
+   },
+
+ "group/pulseaudios": {
+    "orientation": "horizontal",
+    "modules": [
+       "pulseaudio#icon",
+       "pulseaudio#text"
+    ]
+ },
+ "pulseaudio#icon": {
+    "format": "<span color=\"#75DBE1\"> {icon} </span>",
+    "format-bluetooth": "{icon}{format_source}",
+    "format-bluetooth-muted": " {icon} {format_source}",
+    "format-muted": " {format_source}",
+    "format-source": "",
+    "format-source-muted": "",
+    "format-icons": {
+        "headphone": " ",
+        "hands-free": " ",
+        "// hands-free": "",
+        "headset": " ",
+        "phone": "",
+        "portable": "",
+        "car": "",
+        "default": ["", " ", " "]
+    },
+    "on-click": "pavucontrol"
+},
+"pulseaudio#text": {
+ "format": " {volume}% ",
+ "format-bluetooth": "{volume}% {format_source}",
+ "format-bluetooth-muted": "{format_source}",
+ "format-muted": "{format_source}",
+ "format-source": "{volume}%",
+ "format-source-muted": "",
+ "on-click": "pavucontrol"
+},
+
+"group/backlights": {
+ "orientation": "horizontal",
+ "modules": [
+    "backlight#icon",
+    "backlight#text"
+ ]
+},
+
+"backlight#icon": {
+ "device": "intel_backlight",
+ "format": "<span color=\"#B4A1DB\"> {icon} </span>",
+ "format-icons": ["󰃜", "󰃛", "󰃚"]
+},
+"backlight#text": {
+ "device": "intel_backlight",
+ "format": " {percent}% "
+},
+
+
+"group/batteries": {
+ "orientation": "horizontal",
+ "modules": [
+    "battery#icon",
+    "battery#text"
+ ]
+},
+
+  // Battery
+  "battery#icon": {
+    "states": {
+        // "good": 95,
+        "warning": 30,
+        "critical": 15
+    },
+    "format": "<span color=\"#9EE9EA\"> {icon}</span>",
+    "format-charging": "<span color=\"#9EE9EA\"> 󰂄 </span>",
+    "format-plugged": "<span color=\"#9EE9EA\"> 󰂅 </span>",
+    "format-alt": "<span color=\"#9EE9EA\"> {icon} </span>",
+    // "format-good": "", // An empty format will hide the module
+    // "format-full": "",
+    "format-icons": ["󰂎 ", "󰁺 ", "󰁻 ", "󰁼 ", "󰁽 ", "󰁾 ", "󰁿 ", "󰂀 ", "󰂁 ", "󰂂 ", "󰁹 "]
+},
+
+    // Battery
+    "battery#text": {
+       "states": {
+           // "good": 95,
+           "warning": 30,
+           "critical": 15
+       },
+       "format": " {capacity}% ",
+       "format-charging": " {capacity}% ",
+       "format-plugged": " {capacity}% ",
+       "format-alt": " {time}",
+       // "format-good": "", // An empty format will hide the module
+       // "format-full": "",
+       "format-icons": [" ", " ", " ", " ", " "]
+   },
+
+
+   "group/bluetooth": {
+    "orientation": "horizontal",
+    "modules": [
+       "bluetooth#icon",
+       "bluetooth#text"
+    ]
+ },
+
+     // Bluetooth
+ "bluetooth#icon": {
+       "format": "<span color=\"#74DD91\">  </span>",
+       "format-disabled": "",
+       "format-off": "",
+       "interval": 30,
+       "on-click": "blueman-manager"
+   },
+       // Bluetooth
+  "bluetooth#text": {
+    "format": " {status} ",
+    "format-disabled": "",
+    "format-off": "",
+    "interval": 30,
+    "on-click": "blueman-manager"
+},
+
+
+"group/networks": {
+ "orientation": "horizontal",
+    "modules": [
+       "network#icon",
+       "network#text"
+    ]
+},
+"network#icon": {
+    "format": "{ifname}",
+    "format-wifi": "<span color=\"#E49186\"> 󰤨 </span>",
+    "format-ethernet": " 󰈀 ",
+    "tooltip-format": "󰤨 {ifname} via {gwaddri}",
+    "tooltip-format-wifi": "󰤨 {ifname} @ {essid}\nIP: {ipaddr}\nStrength: {signalStrength}%\nFreq: {frequency}MHz\nUp: {bandwidthUpBits} Down: {bandwidthDownBits}",
+    "tooltip-format-ethernet": "󰤨 {ifname}\nIP: {ipaddr}\n up: {bandwidthUpBits} down: {bandwidthDownBits}",
+    "tooltip-format-disconnected": "Disconnected",
+    "max-length": 50
+}, 
+"network#text": {
+ "format": "{ifname}",
+ "format-wifi": "<span background=\"#2A323B\">  {signalStrength}% </span>",
+ "format-ethernet": "  {ifname} ",
+ "format-disconnected": "  Disconnected ",
+ "tooltip-format": "󰤨 {ifname} via {gwaddri}",
+ "tooltip-format-wifi": "󰤨  {ifname} @ {essid}\nIP: {ipaddr}\nStrength: {signalStrength}%\nFreq: {frequency}MHz\nUp: {bandwidthUpBits} Down: {bandwidthDownBits}",
+ "tooltip-format-ethernet": "󰤨 {ifname}\nIP: {ipaddr}\n up: {bandwidthUpBits} down: {bandwidthDownBits}",
+ "tooltip-format-disconnected": "Disconnected",
+ "max-length": 50
+},
+
+"group/clocks": {
+ "orientation": "horizontal",
+    "modules": [
+       "clock#icon",
+       "clock#text"
+    ]
+},
+"clock#icon": {
+ "format": "<span color=\"#75DBE1\"> 󰥔 </span>",
+ "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>"
+}, 
+"clock#text": {
+       "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
+       "forma-alt": "{:%m/%d/%Y %H:%M}",
+       "format": " {:%I:%M %p} "
+},
+
+
+"custom/power": {
+ "format": "<span color=\"#000\"></span>",
+ // "tooltip": "Logout",
+ // "tooltip": "Power Menu",
+ // "on-click": "wlogout"
+ "on-click": "~/.dotfiles/user/pkgs/eww/sidebar/launch.sh",
+ "tooltip": "Sidebar Menu"
+},
+
+
+"hyprland/workspaces" : {
+ "active-only": false,
+ "all-outputs": true,
+ "on-scroll-up": "hyprctl dispatch workspace e+1",
+ "on-scroll-down": "hyprctl dispatch workspace e-1",
+ "format": "{}",
+ "format-icons": {
+   "urgent": "",
+   "focused": "",
+   "default": ""
+ },
+ "persistent-workspaces": {
+   "*": 5
+ }       
+}
+}

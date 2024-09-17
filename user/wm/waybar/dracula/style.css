@@ -1,0 +1,285 @@
+* {
+    font-family: JetBrainsMono;
+}
+
+window#waybar {
+    background: #20262C;
+}
+
+#custom-appmenu{
+    font-size: 0.9rem;
+    background-color: #2A323B;
+    padding: 0.175rem 1rem 0.175rem 0.5rem;
+    border-top-right-radius: 1.25rem;
+}
+
+#group-quicklinks {
+
+}
+
+#custom-terminal {
+    font-size: 0.9rem;
+    color: #F1FCF9;
+    margin: 0.3rem 0.65rem;
+}
+#custom-browser {
+    font-size: 0.9rem;
+    color: #F1FCF9;
+    margin: 0.3rem 0.65rem;
+}
+#custom-filemanager {
+    font-size: 0.9rem;
+    color: #F1FCF9;
+    margin: 0.3rem 0.65rem;
+}
+#custom-cliphist {
+    font-size: 0.8rem;
+    color: #F1FCF9;
+    margin: 0.3rem 0.65rem;
+}
+
+
+.modules-left > :nth-child(3) > :nth-child(1) {
+    margin: 0.15rem;
+}
+.modules-left > :nth-child(3) > :nth-child(1) {
+    font-size: 1rem;
+    color: #F1FCF9;
+    background-color: #353F4A;
+    padding: 0.25rem;
+    border-radius: 1rem;
+}
+.modules-left > :nth-child(3) > :nth-child(1) > :nth-child(1) {
+    font-size: 1rem;
+    color: #F1FCF9;
+    padding: 0.25rem;
+    /* margin-left: 0.5rem; */
+    /* margin-right: 0.5rem; */
+}
+.modules-left > :nth-child(3) > :nth-child(1) > :nth-child(2) {
+    font-size: 1rem;
+    color: #F1FCF9;
+    padding: 0.25rem;
+    /* margin-left: 0.5rem; */
+    /* margin-right: 0.5rem; */
+}
+.modules-left > :nth-child(3) > :nth-child(1) > :nth-child(3) {
+    font-size: 1rem;
+    color: #F1FCF9;
+    padding: 0.5rem;
+    /* margin-left: 0.5rem; */
+    /* margin-right: 0.5rem; */
+}
+
+
+#taskbar {
+
+}
+
+
+.modules-center > :nth-child(1) {
+    margin: 0.15rem;
+}
+.modules-center > :nth-child(1) > :nth-child(1) {
+    font-size: 1rem;
+    color: #F1FCF9;
+    background-color: #353F4A;
+    padding: 0rem;
+    border-top-left-radius: 1rem;
+    border-bottom-left-radius: 1rem;
+}
+.modules-center > :nth-child(1) > :nth-child(2) {
+    font-size: 0.9rem;
+    color: #F1FCF9;
+    padding: 0rem;
+    background-color: #2A323B;
+    border-top-right-radius: 1rem;
+    border-bottom-right-radius: 1rem;
+}
+
+.modules-center > :nth-child(3) {
+    margin: 0.15rem;
+}
+.modules-center > :nth-child(3) > :nth-child(1) {
+    font-size: 1rem;
+    color: #F1FCF9;
+    background-color: #353F4A;
+    padding: 0rem;
+    border-top-left-radius: 1rem;
+    border-bottom-left-radius: 1rem;
+}
+.modules-center > :nth-child(3) > :nth-child(2) {
+    font-size: 0.9rem;
+    color: #F1FCF9;
+    padding: 0rem;
+    background-color: #2A323B;
+    border-top-right-radius: 1rem;
+    border-bottom-right-radius: 1rem;
+}
+
+
+
+
+#hardware {
+    margin: 0.25rem;
+}
+
+#custom-network-icon {
+    font-size: 0.8rem;
+}
+
+#network {
+}
+
+.modules-right > :nth-child(1) {
+    margin: 0.15rem;
+}
+.modules-right > :nth-child(1) > :nth-child(1) {
+    font-size: 1rem;
+    color: #F1FCF9;
+    background-color: #353F4A;
+    padding: 0rem;
+    border-top-left-radius: 1rem;
+    border-bottom-left-radius: 1rem;
+}
+.modules-right > :nth-child(1) > :nth-child(2) {
+    font-size: 0.9rem;
+    color: #F1FCF9;
+    padding: 0rem;
+    background-color: #2A323B;
+    border-top-right-radius: 1rem;
+    border-bottom-right-radius: 1rem;
+}
+
+
+.modules-right > :nth-child(2) {
+    margin: 0.15rem;    
+}
+.modules-right > :nth-child(2) > :nth-child(1) {
+    font-size: 1rem;
+    color: #F1FCF9;
+    padding: 0rem;
+    background-color: #353F4A;
+    border-top-left-radius: 1rem;
+    border-bottom-left-radius: 1rem;
+}
+.modules-right > :nth-child(2) > :nth-child(2) {
+    font-size: 0.9rem;
+    color: #F1FCF9;
+    padding: 0rem;
+    background-color: #2A323B;
+    border-top-right-radius: 1rem;
+    border-bottom-right-radius: 1rem;
+}
+
+
+.modules-right > :nth-child(3) {
+    margin: 0.15rem;    
+}
+.modules-right > :nth-child(3) > :nth-child(1) {
+    font-size: 1rem;
+    color: #F1FCF9;
+    padding: 0rem;
+    background-color: #353F4A;
+    border-top-left-radius: 1rem;
+    border-bottom-left-radius: 1rem;
+}
+.modules-right > :nth-child(3) > :nth-child(2) {
+    font-size: 0.9rem;
+    color: #F1FCF9;
+    padding: 0rem;
+    background-color: #2A323B;
+    border-top-right-radius: 1rem;
+    border-bottom-right-radius: 1rem;
+}
+
+
+.modules-right > :nth-child(4) {
+    margin: 0.15rem;    
+}
+.modules-right > :nth-child(4) > :nth-child(1) {
+    font-size: 1rem;
+    color: #F1FCF9;
+    padding: 0rem;
+    background-color: #353F4A;
+    border-top-left-radius: 1rem;
+    border-bottom-left-radius: 1rem;
+}
+.modules-right > :nth-child(4) > :nth-child(2) {
+    font-size: 0.9rem;
+    color: #F1FCF9;
+    padding: 0rem;
+    background-color: #2A323B;
+    border-top-right-radius: 1rem;
+    border-bottom-right-radius: 1rem;
+}
+
+
+.modules-right > :nth-child(5) {
+    margin: 0.15rem;    
+}
+.modules-right > :nth-child(5) > :nth-child(1) {
+    font-size: 1rem;
+    color: #F1FCF9;
+    padding: 0rem;
+    background-color: #353F4A;
+    border-top-left-radius: 1rem;
+    border-bottom-left-radius: 1rem;
+}
+.modules-right > :nth-child(5) > :nth-child(2) {
+    font-size: 0.9rem;
+    color: #F1FCF9;
+    padding: 0rem;
+    background-color: #2A323B;
+    border-top-right-radius: 1rem;
+    border-bottom-right-radius: 1rem;
+}
+
+.modules-right > :nth-child(6) {
+    margin: 0.15rem;    
+}
+.modules-right > :nth-child(6) > :nth-child(1) {
+    font-size: 1rem;
+    color: #F1FCF9;
+    padding: 0rem;
+    background-color: #353F4A;
+    border-top-left-radius: 1rem;
+    border-bottom-left-radius: 1rem;
+}
+.modules-right > :nth-child(6) > :nth-child(2) {
+    font-size: 0.9rem;
+    color: #F1FCF9;
+    padding: 0rem;
+    background-color: #2A323B;
+    border-top-right-radius: 1rem;
+    border-bottom-right-radius: 1rem;
+}
+
+#custom-power {
+    font-size: 0.95rem;
+    background-color: #DB86BA;
+    padding: 0rem 0.8rem 0rem 0.5rem;
+    margin: 0.2rem;
+    border-radius: 0.75rem;
+}
+
+
+#workspaces {
+    background-color: #2A323B;
+    padding: 0rem;
+    border: 1px solid #2A323B;
+    border-radius: 1rem;
+    border-left: none;
+    border-right: none;
+    font-size: 0.9rem;
+    margin: 0.2rem;
+}
+#workspaces button {
+    padding: 0.1rem;
+    color: #F1FCF9;
+    font-weight: 500;
+}
+#workspaces button.active {
+    background-color: #20262C;
+    border-radius: 1rem;
+}
